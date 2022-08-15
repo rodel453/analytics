@@ -20,13 +20,18 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-     @include('layouts.partials.menu') 
+
+    @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login')
+    @include('layouts.partials.menu') 
+    @endif
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
+        
+        @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login')
         @include('layouts.partials.topbar')
-
+        @endif
         <!-- Main Content -->
         <div id="content">
 
@@ -41,7 +46,10 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
+        @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login')
         @include('layouts.partials.footer') 
+        @endif
+        
         <!-- End of Footer -->
 
     </div>
