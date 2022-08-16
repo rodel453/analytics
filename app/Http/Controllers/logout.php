@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class logout extends Controller
 {
     public function logout(){
-        echo "logout"; exit();
-        Session::flush();
+        // echo "logout"; exit();
+        // Session::flush();
         
-        Auth::logout();
+        // Auth::logout();
 
-        return redirect('login');
+        // return redirect('login');
     }
 }

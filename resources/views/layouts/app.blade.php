@@ -14,6 +14,7 @@
    
 </head>
 
+
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -21,7 +22,7 @@
 
     <!-- Sidebar -->
 
-    @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login')
+    @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login' && Route::currentRouteName() != 'password.request')
     @include('layouts.partials.menu') 
     @endif
     <!-- End of Sidebar -->
@@ -29,7 +30,7 @@
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
         
-        @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login')
+        @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login' && Route::currentRouteName() != 'password.request')
         @include('layouts.partials.topbar')
         @endif
         <!-- Main Content -->
@@ -46,7 +47,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login')
+        @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login' && Route::currentRouteName() != 'password.request')
         @include('layouts.partials.footer') 
         @endif
         
