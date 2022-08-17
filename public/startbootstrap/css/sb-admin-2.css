@@ -10861,19 +10861,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("stone.jpg");
+  background: url("images/stone.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("lighthouse.jpg");
+  background: url("images/lighthouse.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("church.jpg");
+  background: url("images/church.jpg");
   background-position: center;
   background-size: cover;
 }
