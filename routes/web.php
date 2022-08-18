@@ -21,7 +21,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'logout']);
-Route::get('/profile', [App\Http\Controllers\UpdateProfileController::class, 'index']);
+Route::get('/profile', [App\Http\Controllers\UpdateProfileController::class, 'index'])->middleware('auth');
+
+Route::post('/profile/update-user', [App\Http\Controllers\UpdateProfileController::class, 'update'])->name('update-user');
+Route::post('/profile/update-password', [App\Http\Controllers\UpdateProfileController::class, 'updatePassword'])->name('update-password');
 
 
 
