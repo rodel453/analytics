@@ -33,10 +33,11 @@
                 <div class="col-lg-4 col-xlg-3 col-md-5 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <center class="mt-4"> <img src="{{url('startbootstrap/css/images/logo.png')}}" class="img-circle"
+                            <center class="mt-4"> <img src="{{ auth()->user()->picture }}" class="profile-user-img img-fluid rounded-circle admin_picture"
                                     width="150" />
-                                <h4 class="card-title mt-2">Hanna Gover</h4>
-                                <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                <h4 class="card-title mt-2">{{ $user->name }}</h4>
+                                <input type="file" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
+                                <button type="submit" class="btn btn-primary" id="change_picture_btn">Change Picture</button>
                             </center>
                         </div>
                     </div>

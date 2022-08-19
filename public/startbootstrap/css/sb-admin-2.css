@@ -10878,6 +10878,13 @@ a:focus {
   background-size: cover;
 }
 
+.profile-user-img {
+  border: 3px solid #adb5bd;
+  margin: 0 auto;
+  padding: 3px;
+  width: 150px;
+}
+
 form.user .custom-checkbox.small label {
   line-height: 1.5rem;
 }

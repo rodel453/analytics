@@ -25,7 +25,7 @@ Route::get('/profile', [App\Http\Controllers\UpdateProfileController::class, 'in
 
 Route::post('/profile/update-user', [App\Http\Controllers\UpdateProfileController::class, 'update'])->name('update-user');
 Route::post('/profile/update-password', [App\Http\Controllers\UpdateProfileController::class, 'updatePassword'])->name('update-password');
-
+Route::post('/profile/update-picture', [App\Http\Controllers\UpdateProfileController::class,'updatePicture'])->name('PictureUpdate');
 
 
 // Route::get('/profile', function () {

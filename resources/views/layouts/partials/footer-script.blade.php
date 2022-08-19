@@ -38,3 +38,29 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('startbootstrap/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('startbootstrap/js/demo/chart-pie-demo.js') }}"></script>
+
+    <script src="{{ asset('plugins/ijaboCroptool/ijaboCropTool.min.js') }}"></script>
+    
+    <script>
+
+    $(document).on('click','#change_picture_btn', function(){
+      $('#admin_image').click();
+    });
+
+    $('#admin_image').ijaboCropTool({
+          preview : '.admin_picture',
+          setRatio:1,
+          allowedExtensions: ['jpg', 'jpeg','png'],
+          buttonsText:['CROP','QUIT'],
+          buttonsColor:['#30bf7d','#ee5155', -15],
+          processUrl:'{{ route("PictureUpdate") }}',
+          withCSRF:['_token','{{ csrf_token() }}'],
+          onSuccess:function(message, element, status){
+             alert(message);
+          },
+          onError:function(message, element, status){
+            alert(message);
+          }
+       });
+
+    </script>
