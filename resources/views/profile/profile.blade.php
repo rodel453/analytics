@@ -12,9 +12,9 @@
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
+                <div class="col-lg-4 col-xlg-3 col-md-5 align-self-center">
                     <h3 class="text-themecolor">Profile</h3>
-                    <ol class="breadcrumb" style="width: 79%;">
+                    <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                         <li class="breadcrumb-item active">Profile</li>
                     </ol>

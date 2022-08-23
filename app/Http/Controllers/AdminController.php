@@ -8,6 +8,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('backend.dashboard');
+        // $usercount = User::all()->count();
+        // return view('backend.dashboard',compact('usercount'));
+        
+        
     }
 }

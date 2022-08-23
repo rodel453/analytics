@@ -16,6 +16,10 @@
 
 <?php
 $id = Auth::id();
+if ($id != null){
+    $utype = Auth::user()->user_type;
+}
+
 ?>
 
 
@@ -27,7 +31,7 @@ $id = Auth::id();
     <!-- Sidebar -->
 
     @if (Route::currentRouteName() != 'register' && Route::currentRouteName() != 'login' && Route::currentRouteName() != 'password.request')
-        @if ($id == 1)
+        @if ($utype == 1)
             @include('layouts.partials.adminmenu') 
          @else 
             @include('layouts.partials.menu') 
