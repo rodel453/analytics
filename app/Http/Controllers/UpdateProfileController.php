@@ -23,7 +23,8 @@ class UpdateProfileController extends Controller
         $id = Auth::id(); 
         $user = User::find($id);
         $request->validate([
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
         ]);
     
         $user->update($request->all());

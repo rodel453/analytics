@@ -17,8 +17,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $appends = [
+        'fullname',
+    ];
+    
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
         'picture',
@@ -49,5 +55,9 @@ class User extends Authenticatable
         }else{
             return asset('startbootstrap/css/images/logo.png');
         }
+    }
+
+    public function getFullnameAttribute(){
+        return "{$this->first_name} {$this->last_name}";
     }
 }

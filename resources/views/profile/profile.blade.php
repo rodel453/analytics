@@ -35,7 +35,7 @@
                         <div class="card-body">
                             <center class="mt-4"> <img src="{{ auth()->user()->picture }}" class="profile-user-img img-fluid rounded-circle admin_picture"
                                     width="150" />
-                                <h4 class="card-title mt-2">{{ $user->name }}</h4>
+                                <h4 class="card-title mt-2">{{ $user->fullname }}</h4>
                                 <input type="file" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
                                 <button type="submit" class="btn btn-primary" id="change_picture_btn">Change Picture</button>
                             </center>
@@ -75,9 +75,17 @@
   
                             @endif
                         <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                          <label for="inputName5" class="col-sm-2 col-form-label">Firstname</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" placeholder="Enter your name" value="{{ $user->name }}" name="name">
+                            <input type="text" class="form-control" id="inputName5" placeholder="Enter your firstname" value="{{ $user->first_name }}" name="first_name">
+
+                            <span class="text-danger error-text name_error"></span>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                        <label for="inputName6" class="col-sm-2 col-form-label">Lastname</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputName6" placeholder="Enter your lastname" value="{{ $user->last_name }}" name="last_name">
 
                             <span class="text-danger error-text name_error"></span>
                           </div>

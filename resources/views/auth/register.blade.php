@@ -93,11 +93,21 @@
                             @csrf
 
                                 <div class="form-group row">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" id="exampleFirstName" id="name" class="form-control form-control-user @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" id="exampleFirstName" id="first_name" class="form-control form-control-user @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus
+                                            placeholder="First Name">
+
+                                            @error('first_name')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" id="exampleFirstName" id="last_name" class="form-control form-control-user @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus
                                             placeholder="Full Name">
 
-                                            @error('name')
+                                            @error('last_name')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                             </span>
