@@ -10,7 +10,23 @@
     <h1 class="h3 mb-0 text-gray-800">Frontend Dashboard</h1>
     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-            
+            <div
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-gray-800">Websites</h6>
+                <div class="dropdown ml-2">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Website List:</div>
+                        <a class="dropdown-item" href="#">Youtube.com</a>
+                        <a class="dropdown-item" href="#">Google.com</a>
+                        <!-- <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
+                </div>
+            </div>
 </div>
 
 <!-- Content Row -->
