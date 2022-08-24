@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
-
+use App\Http\Controllers\UpdateProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,11 +31,11 @@ Route::get('/index/user', [App\Http\Controllers\UserController::class, 'index'])
 
 
 // This route is for profile page
-Route::prefix('profile')->group(function () {
-    Route::get('/', [App\Http\Controllers\UpdateProfileController::class, 'index'])->middleware('auth');
-    Route::post('/update-user', [App\Http\Controllers\UpdateProfileController::class, 'update'])->name('update-user')->middleware('auth');
-    Route::post('/update-password', [App\Http\Controllers\UpdateProfileController::class, 'updatePassword'])->name('update-password')->middleware('auth');
-    Route::post('/update-picture', [App\Http\Controllers\UpdateProfileController::class,'updatePicture'])->name('PictureUpdate')->middleware('auth');
+Route::controller(UpdateProfileController::class)->prefix('profile')->middleware('auth')->group(function () {
+    Route::get('/','index');
+    Route::post('/update-user', 'update')->name('update-user');
+    Route::post('/update-password', 'updatePassword')->name('update-password');
+    Route::post('/update-picture','updatePicture')->name('PictureUpdate');
 
 });
 
