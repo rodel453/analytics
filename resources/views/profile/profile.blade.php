@@ -74,31 +74,31 @@
                                 </div>
   
                             @endif
-                        <div class="form-group row">
-                          <label for="inputName5" class="col-sm-2 col-form-label">Firstname</label>
-                          <div class="col-sm-10">
+                        <div class="form-group">
+                          <label for="inputName5" class="col-sm-2 col-form-label">Firstname:</label>
+                          <div class="col-sm-12">
                             <input type="text" class="form-control" id="inputName5" placeholder="Enter your firstname" value="{{ $user->first_name }}" name="first_name">
 
                             <span class="text-danger error-text name_error"></span>
                           </div>
                         </div>
-                        <div class="form-group row">
-                        <label for="inputName6" class="col-sm-2 col-form-label">Lastname</label>
-                          <div class="col-sm-10">
+                        <div class="form-group">
+                        <label for="inputName6" class="col-sm-2 col-form-label">Lastname:</label>
+                          <div class="col-sm-12">
                             <input type="text" class="form-control" id="inputName6" placeholder="Enter your lastname" value="{{ $user->last_name }}" name="last_name">
 
                             <span class="text-danger error-text name_error"></span>
                           </div>
                         </div>
-                        <div class="form-group row">
-                          <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                          <div class="col-sm-10">
+                        <div class="form-group">
+                          <label for="inputEmail" class="col-sm-2 col-form-label">Email:</label>
+                          <div class="col-sm-12">
                             <input class="form-control"  disabled value="{{ $user->email }}" name="email">
                             <span class="text-danger error-text email_error"></span>
                           </div>
                         </div>
-                        <div class="form-group row">
-                          <div class="offset-sm-8 col-sm-4 d-flex justify-content-end">
+                        <div class="form-group">
+                          <div class="col-sm-8 col-sm-4">
                             <button type="submit" class="btn btn-primary">Update Profile</button>
                           </div>
                         </div>
@@ -117,10 +117,10 @@
                                 {{ session('error') }}
                                 </div>
                             @endif
-                          <div class="form-group row">
-                            <label for="inputName" class="col-sm-4 col-form-label">Old Password</label>
-                            <div class="col-sm-8">
-                              <input type="password" class="form-control @error('old_password') is-invalid @enderror" id="inputName" placeholder="Enter current password" name="old_password">
+                          <div class="form-group">
+                            <label for="inputName" class="col-sm-4 col-form-label">Old Password:</label>
+                            <div class="col-sm-12">
+                              <input type="password" class="form-control @error('old_password') is-invalid @enderror" id="inputName"  name="old_password">
                               <!-- <span class="text-danger error-text oldpassword_error"></span> -->
                               @error('old_password')
                                 <span class="invalid-feedback" role="alert">
@@ -129,10 +129,10 @@
                              @enderror
                             </div>
                           </div>
-                          <div class="form-group row">
-                            <label for="inputName2" class="col-sm-4 col-form-label">New Password</label>
-                            <div class="col-sm-8">
-                              <input type="password" class="form-control @error('new_password') is-invalid @enderror" id="newpassword" placeholder="Enter new password" name="new_password">
+                          <div class="form-group">
+                            <label for="inputName2" class="col-sm-4 col-form-label">New Password:</label>
+                            <div class="col-sm-12">
+                              <input type="password" class="form-control @error('new_password') is-invalid @enderror" id="newpassword"  name="new_password">
                               <!-- <span class="text-danger error-text newpassword_error"></span> -->
                               @error('new_password')
                                 <span class="invalid-feedback" role="alert">
@@ -141,10 +141,10 @@
                                 @enderror
                             </div>
                           </div>
-                          <div class="form-group row">
-                            <label for="inputName2" class="col-sm-4 col-form-label">Confirm New Password</label>
-                            <div class="col-sm-8">
-                              <input type="password" class="form-control @error('new_password_confirmation') is-invalid @enderror" id="cnewpassword" placeholder="Confirm new password" name="new_password_confirmation">
+                          <div class="form-group">
+                            <label for="inputName2" class="col-sm-4 col-form-label">Confirm New Password:</label>
+                            <div class="col-sm-12">
+                              <input type="password" class="form-control @error('new_password_confirmation') is-invalid @enderror" id="cnewpassword"  name="new_password_confirmation">
                               <!-- <span class="text-danger error-text cnewpassword_error"></span> -->
                               @error('new_password_confirmation')
                                 <span class="invalid-feedback" role="alert">
@@ -153,8 +153,8 @@
                                 @enderror
                             </div>
                           </div>
-                          <div class="form-group row">
-                            <div class="offset-sm-8 col-sm-4 d-flex justify-content-end">
+                          <div class="form-group">
+                            <div class="col-sm-8 col-sm-4">
                               <button type="submit" class="btn btn-primary">Update Password</button>
                             </div>
                           </div>
