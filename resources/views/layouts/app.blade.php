@@ -15,12 +15,12 @@
 </head>
 
 <?php
-$id = Auth::id();
+$id = auth()->user();
 if ($id != null){
-    $utype = Auth::user()->user_type;
+    $utype = auth()->user()->user_type;
 }
 
-?>
+?> 
 
 
 <body id="page-top">

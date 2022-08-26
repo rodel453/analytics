@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('website', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('g_view_id');
+            $table->string('g_view_id');
             $table->string('website_name');
             $table->boolean('website_status');
         });

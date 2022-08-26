@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UpdateProfileController;
+use Illuminate\Support\Facades\Auth;
+// use Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,8 @@ Route::get('test', function(){
     return "This routes is working";
 });
 
+Route::get('users', [App\HTTP\Controllers\AdminController::class, 'user_data'])->middleware('auth');
+
 //This route is for dashboard of both user and admin page
 Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory');
 
@@ -25,6 +29,8 @@ Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])
 Route::middleware(['middleware'=>'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
+
+// Route::get('/admin/users', [App\HTTP\Controllers\AdminController::class, 'user_view'])->middleware('auth');
 
 
 // Route::get('/index/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard')->middleware('auth');
