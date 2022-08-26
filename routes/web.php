@@ -14,6 +14,9 @@ use App\Http\Controllers\UpdateProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('test', function(){
+    return "This routes is working";
+});
 
 //This route is for dashboard of both user and admin page
 Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory');
