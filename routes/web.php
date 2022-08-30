@@ -48,7 +48,8 @@ Route::controller(UpdateProfileController::class)->prefix('profile')->middleware
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth','PreventBackHistory');
+Route::post('/mark-as-read', [App\Http\Controllers\HomeController::class, 'markNotification'])->name('markNotification')->middleware('auth','PreventBackHistory');
 
 // This route is for logout of both admin and user
 Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'logout'])->middleware('auth');
