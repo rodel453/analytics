@@ -104,6 +104,13 @@
             <span>Users</span></a>
     </li>
 
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url('website') }}">
+            <i class="fas fa-fw fa-globe"></i>
+            <span>Website</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

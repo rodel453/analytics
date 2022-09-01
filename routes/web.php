@@ -20,7 +20,8 @@ Route::get('test', function(){
     return "This routes is working";
 });
 
-Route::get('users', [App\HTTP\Controllers\AdminController::class, 'user_data'])->middleware('auth');
+Route::get('users', [App\Http\Controllers\AdminController::class, 'user_data'])->middleware('auth');
+Route::get('website', [App\Http\Controllers\AdminController::class, 'website_data'])->middleware('auth');
 
 //This route is for dashboard of both user and admin page
 Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory');

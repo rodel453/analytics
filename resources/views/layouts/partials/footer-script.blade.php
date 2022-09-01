@@ -23,7 +23,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src=" {{ asset ('startbootstrap/vendor/jquery/jquery.min.js') }}"></script>
+    <!-- <script src="{{ asset('startbootstrap/vendor/jquery/jquery.min.js') }}"></script> -->
     <script src="{{ asset('startbootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->

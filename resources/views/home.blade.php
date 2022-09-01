@@ -26,17 +26,17 @@ if ($id != null){
                     @if($utype == 1)
                         @forelse($notifications as $notification)
                             <div class="alert alert-success" role="alert">
-                                [{{ $notification->created_at->format('d M Y') }}] USER {{ $notification->data['first_name'] }} ({{ $notification->data['email'] }}) has just registered.
+                                {{ $notification->created_at->format('M d, Y') }} USER {{ $notification->data['first_name'] }} ({{ $notification->data['email'] }}) has just registered.
                                 <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">
-                                    <!-- Mark as read -->
+                                    Mark as read
                                 </a>
                             </div>
 
-                            <!-- @if($loop->last)
+                            @if($loop->last)
                                 <a href="#" id="mark-all">
                                     Mark all as read
                                 </a>
-                            @endif -->
+                            @endif
                         @empty
                             There are no new notifications
                         @endforelse
@@ -49,9 +49,8 @@ if ($id != null){
     </div>
 </div>
 @endsection
-@section('scripts')
+<!-- @section('scripts')
 @parent
-@if($utype == 1)
     <script>
     function sendMarkRequest(id = null) {
         return $.ajax("{{ route('markNotification') }}", {
@@ -77,5 +76,4 @@ if ($id != null){
         });
     });
     </script>
-@endif
-@endsection
+@endsection -->

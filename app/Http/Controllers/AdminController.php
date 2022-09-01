@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Datatables;
 use App\DataTables\UserDataTable;
+use App\DataTables\WebsiteDataTable;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -19,6 +20,13 @@ class AdminController extends Controller
 
         // return Datatables::of(Users::query())->make(true);
         return $datatable->render('backend.users');
+
+    }
+
+    public function website_data(WebsiteDataTable $datatable){
+
+        // return Datatables::of(Users::query())->make(true);
+        return $datatable->render('backend.website');
 
     }
 
