@@ -20,7 +20,8 @@ $( document ).ready(function() {
         columns: [
                 { data: 'id', name: 'id' },
                 { data: 'first_name', name: 'first_name' },
-                { data: 'email', name: 'email' }
+                { data: 'email', name: 'email' },
+                { data: 'action', name: 'action' },
                 ]
         });
 });

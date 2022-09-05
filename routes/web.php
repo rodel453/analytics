@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UpdateProfileController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminController;
 // use Auth;
 
 /*
@@ -20,6 +21,10 @@ Route::get('test', function(){
     return "This routes is working";
 });
 
+
+// Route::post('ajaxuser',AdminController::class);
+Route::get('users/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->middleware('auth');
+Route::get('users/view/{id}', [App\Http\Controllers\AdminController::class, 'view'])->middleware('auth');
 Route::get('users', [App\Http\Controllers\AdminController::class, 'user_data'])->middleware('auth');
 Route::get('website', [App\Http\Controllers\AdminController::class, 'website_data'])->middleware('auth');
 

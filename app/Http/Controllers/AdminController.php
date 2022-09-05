@@ -34,4 +34,20 @@ class AdminController extends Controller
 
         // return view('backend.users');
     }
+
+    public function view($id)
+    {
+        $user = User::find($id);
+     
+        return response()->json($user);
+    }
+
+
+
+    public function delete($id)
+    {
+        User::find($id)->delete();
+     
+        return response()->json(['success'=>'Product deleted successfully.']);
+    }
 }
