@@ -34,7 +34,7 @@ class WebsiteDataTable extends DataTable
             
             }
 
-            $btn = '<a href="javascript:void(0)" data-id="'.$row->id.'" data-toggle="modal" data-target="#viewModal" class="viewWebsite btn btn-info btn-sm mr-2">View</a>';
+            $btn = '<a href="/campaign" data-id="'.$row->id.'" class="btn btn-info btn-sm mr-2">View</a>';
             $btn = $btn.$temp_btn;
             
 

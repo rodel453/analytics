@@ -68,4 +68,9 @@ class AdminController extends Controller
         return response()->json('success');
     }
 
+    public function campaign(){
+        
+        return view('backend.campaign');
+    }
+
 }

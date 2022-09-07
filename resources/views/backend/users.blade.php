@@ -8,7 +8,7 @@
          <div class="container-fluid">
          <div class="row page-titles">
                 <div class="col-lg-4 col-xlg-3 col-md-5 align-self-center">
-                    <h3 class="text-themecolor">UserTable</h3>
+                    <h3 class="text-themecolor">User Table</h3>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                         <li class="breadcrumb-item active">User</li>
@@ -38,28 +38,33 @@
         </button>
       </div>
       <div class="modal-body">
-         <form id="webForm" name="webForm" class="form-horizontal">
-            <div class="form-group">
-                  <label for="id" class="col-sm-2 control-label">ID</label>
-                   <div class="col-sm-12">
-                   <input readonly type="text" class="form-control" id="web_id" name="web_id" maxlength="50" required="">
-                   </div>
-               </div>
 
-               <div class="form-group">
-                  <label for="first_name" class="col-sm-2 control-label">Name</label>
-                   <div class="col-sm-12">
-                        <input type="text" class="form-control" id="" name="" maxlength="50" required="">
-                   </div>
-               </div>
-     
-               <div class="form-group">
-                  <label class="col-sm-2 control-label">Email</label>
-                   <div class="col-sm-12">
-                   <input readonly type="text" class="form-control" id="" name="" maxlength="50" required="">
-                        </div>
-                    </div>
-               </div>
+      <div class="container">
+        <div class="row">
+    
+          <div class="col-lg-4 col-xlg-3 col-md-5">
+            <div class="box">
+              <img class="mb-3 profile-user-img img-fluid"  src="{{ auth()->user()->picture }}"
+                        alt="...">
+            </div>
+          </div>
+    
+    
+          <div class="col-lg-8 col-xlg-9 col-md-7">
+            <div class="box">
+            <label for="name" class="control-label">ID</label>
+            </div>
+            <div class="box">
+            <label for="name" class="control-label">Name</label>
+            </div>
+            <div class="box">
+            <label for="name" class="control-label">Email</label>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>

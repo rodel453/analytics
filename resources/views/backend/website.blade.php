@@ -8,7 +8,7 @@
          <div class="container-fluid">
          <div class="row page-titles">
                 <div class="col-lg-4 col-xlg-3 col-md-5 align-self-center">
-                    <h3 class="text-themecolor">WebsiteTable</h3>
+                    <h3 class="text-themecolor">Website Table</h3>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                         <li class="breadcrumb-item active">Website</li>

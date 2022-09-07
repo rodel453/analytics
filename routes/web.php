@@ -30,6 +30,7 @@ Route::get('users', [App\Http\Controllers\AdminController::class, 'user_data'])-
 
 // Route for websiteTable in Admin
 Route::get('website', [App\Http\Controllers\AdminController::class, 'website_data'])->middleware('auth');
+Route::get('campaign', [App\Http\Controllers\AdminController::class, 'campaign'])->middleware('auth');
 Route::get('website/status-update/{id}/{status}', [App\Http\Controllers\AdminController::class, 'status_update'])->middleware('auth');
 
 //This route is for dashboard of both user and admin page
