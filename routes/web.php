@@ -22,11 +22,15 @@ Route::get('test', function(){
 });
 
 
-// Route::post('ajaxuser',AdminController::class);
+// Route for userTable in Admin
 Route::get('users/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->middleware('auth');
-Route::get('users/view/{id}', [App\Http\Controllers\AdminController::class, 'view'])->middleware('auth');
+Route::get('users/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->middleware('auth');
+Route::post('users/update/', [App\Http\Controllers\AdminController::class, 'update'])->middleware('auth');
 Route::get('users', [App\Http\Controllers\AdminController::class, 'user_data'])->middleware('auth');
+
+// Route for websiteTable in Admin
 Route::get('website', [App\Http\Controllers\AdminController::class, 'website_data'])->middleware('auth');
+Route::get('website/status-update/{id}/{status}', [App\Http\Controllers\AdminController::class, 'status_update'])->middleware('auth');
 
 //This route is for dashboard of both user and admin page
 Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory');

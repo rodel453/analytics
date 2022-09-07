@@ -38,35 +38,36 @@
         </button>
       </div>
       <div class="modal-body">
-         <form id="productForm" name="productForm" class="form-horizontal">
-               <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">ID</label>
+         <form id="webForm" name="webForm" class="form-horizontal">
+            <div class="form-group">
+                  <label for="id" class="col-sm-2 control-label">ID</label>
                    <div class="col-sm-12">
-                        <input disabled type="text" class="form-control" id="name" name="name" value="" maxlength="50" required="">
+                   <input readonly type="text" class="form-control" id="web_id" name="web_id" maxlength="50" required="">
                    </div>
                </div>
 
                <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">Name</label>
+                  <label for="first_name" class="col-sm-2 control-label">Name</label>
                    <div class="col-sm-12">
-                        <input disabled type="text" class="form-control" id="name" name="name"  value="" maxlength="50" required="">
+                        <input type="text" class="form-control" id="" name="" maxlength="50" required="">
                    </div>
                </div>
      
                <div class="form-group">
                   <label class="col-sm-2 control-label">Email</label>
                    <div class="col-sm-12">
-                   <input disabled type="text" class="form-control" id="name" name="name"  value="" maxlength="50" required="">
+                   <input readonly type="text" class="form-control" id="" name="" maxlength="50" required="">
                         </div>
                     </div>
                </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <!--Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -79,32 +80,31 @@
         </button>
       </div>
       <div class="modal-body">
-         <form id="productForm" name="productForm" class="form-horizontal">
-            <input type="hidden" name="product_id" id="product_id">
+         <form id="userForm" name="userForm" class="form-horizontal">
             <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">ID</label>
+                  <label for="id" class="col-sm-2 control-label">ID</label>
                    <div class="col-sm-12">
-                        <input disabled class="form-control" value="123">
+                   <input readonly type="text" class="form-control" id="user_id" name="user_id" maxlength="50" required="">
                    </div>
                </div>
 
                <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">Name</label>
+                  <label for="first_name" class="col-sm-2 control-label">Name</label>
                    <div class="col-sm-12">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" value="" maxlength="50" required="">
+                        <input type="text" class="form-control" id="first_name" name="first_name" maxlength="50" required="">
                    </div>
                </div>
      
                <div class="form-group">
                   <label class="col-sm-2 control-label">Email</label>
                    <div class="col-sm-12">
-                   <input disabled type="text" class="form-control" id="name" name="name" placeholder="Enter Mail" value="" maxlength="50" required="">
+                   <input readonly type="text" class="form-control" id="email" name="email" maxlength="50" required="">
                         </div>
                     </div>
                </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary" id="saveBtn">Save changes</button>
       </div>
     </div>
   </div>
@@ -114,6 +114,14 @@
          <!-- {{ url('users') }} -->
        <script type="text/javascript">
          $(function() {
+
+
+         $.ajaxSetup({
+         headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         }
+         });
+
           var table = $('#table').DataTable({
                processing: true,
                serverSide: true,
@@ -125,15 +133,44 @@
                         { data: 'action', name: 'action', orderable: false, searchable: false},
                      ]
             });
-         
+
+
+         $('body').on('click', '.editUser', function () {
+         var user_id = $(this).data('id');
+         $.get("users/edit" +'/' + user_id, function (data) {
+            $('#modelHeading').html("Edit Product");
+            $('#saveBtn').val("edit-user");
+            $('#user_id').val(data.id);
+            $('#first_name').val(data.first_name);
+            $('#email').val(data.email);
+        })
+    });
+
+    $('#saveBtn').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            data: $('#userForm').serialize(),
+            url: "users/update",
+            type: "POST",
+            dataType: 'json',
+            success: function (data) {
+                $('#userForm').trigger("reset");
+                $('#editModal').modal('hide');
+                table.draw();
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+
                $('body').on('click', '.deleteUser', function (){
                var user_id = $(this).data("id");
-               console.log($(this).data("id"));
                var result = confirm("Are You sure want to delete !");
                   if(result){
                      $.ajax({
                      type: "GET",
-                     url: "http://localhost:8000/users/delete"+'/'+user_id,
+                     url: "/users/delete"+'/'+user_id,
                      success: function (data) {
                      table.draw();
                   },
@@ -145,32 +182,6 @@
             return false;
         }
     });
-
-    $('body').on('click', '.viewUser', function (){
-               var user_id = $(this).data("id");
-               console.log($(this).data("id"));
-                  if(result){
-                     $.ajax({
-                     type: "GET",
-                     url: "http://localhost:8000/users/view"+'/'+user_id,
-                     success: function (data) {
-                    
-                  }
-               });
-            }else{
-            return false;
-        }
-    });
-
-
-
-
-
-
-
-         });
-
-
-      
-         </script>
+});
+</script>
 @endsection

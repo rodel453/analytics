@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Website;
 use Illuminate\Http\Request;
 use Datatables;
 use App\DataTables\UserDataTable;
@@ -35,10 +36,18 @@ class AdminController extends Controller
         // return view('backend.users');
     }
 
-    public function view($id)
+    public function update(Request $request)
+    {
+        $user_data = User::find($request->user_id);
+        $user_data->first_name = $request->first_name;
+        $user_data->save();  
+     
+        return response()->json(['success'=>'User saved successfully.']);
+    }
+
+    public function edit($id)
     {
         $user = User::find($id);
-     
         return response()->json($user);
     }
 
@@ -48,6 +57,15 @@ class AdminController extends Controller
     {
         User::find($id)->delete();
      
-        return response()->json(['success'=>'Product deleted successfully.']);
+        return response()->json(['success'=>'User deleted successfully.']);
     }
+
+    public function status_update($id, $status)
+    {
+        $website = Website::find($id);
+        $website->website_status = $status;
+        $website->save();
+        return response()->json('success');
+    }
+
 }

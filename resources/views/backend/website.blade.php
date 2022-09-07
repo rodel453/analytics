@@ -22,6 +22,8 @@
                      <th>User ID</th>
                      <th>Google ID</th>
                      <th>Website Name</th>
+                     <th>Website Status</th>
+                     <th>Action</th>
                   </tr>
                </thead>
             </table>
@@ -29,7 +31,8 @@
          <!-- {{ url('users') }} -->
        <script>
          $(function() {
-               $('#table').DataTable({
+
+          var table = $('#table').DataTable({
                processing: true,
                serverSide: true,
                ajax: '{{ url('website') }}',
@@ -37,9 +40,27 @@
                         { data: 'id', name: 'id' },
                         { data: 'user_id', name: 'user_id' },
                         { data: 'g_view_id', name: 'g_view_id' },
-                        { data: 'website_name', name: 'website_name' }
+                        { data: 'website_name', name: 'website_name' },
+                        { data: 'website_status', name: 'website_status', render: function ( data, type, full, meta ) {
+                        return data === 1 ? "active" : "not active" ;
+                        } },
+                        { data: 'action', name: 'action', orderable: false, searchable: false},
                      ]
             });
+
+               $('body').on('click', '.editStatus', function () {
+               let id = $(this).data('id');
+               let status = $(this).data('update-status');
+                  $.ajax({
+                     url: `website/status-update/${$(this).data('id')}/${status}`,
+                     type: "GET",
+                     dataType: 'json',
+                     success: function (data) {
+                     
+                     table.draw();
+                     },
+                  });
+               });
          });
-         </script>
+       </script>
 @endsection

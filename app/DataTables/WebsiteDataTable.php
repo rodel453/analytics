@@ -24,14 +24,28 @@ class WebsiteDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'website.action')
-            ->setRowId('id');
+        ->addIndexColumn()
+        ->addColumn('action', function($row){
+
+            if($row->website_status == 1){
+                $temp_btn = '<a href="javascript:void(0)" data-id="'.$row->id.'" data-update-status="2" data-toggle="collapse" class="editStatus btn btn-danger btn-sm">Deactivate</a>';
+            } else {
+                $temp_btn = '<a href="javascript:void(0)" data-id="'.$row->id.'" data-update-status="1" data-toggle="collapse" class="editStatus btn btn-success btn-sm">Activate</a>';
+            
+            }
+
+            $btn = '<a href="javascript:void(0)" data-id="'.$row->id.'" data-toggle="modal" data-target="#viewModal" class="viewWebsite btn btn-info btn-sm mr-2">View</a>';
+            $btn = $btn.$temp_btn;
+            
+
+                return $btn;
+        });
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\User $model
+     * @param \App\Models\Website $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Website $model): QueryBuilder
@@ -72,7 +86,8 @@ class WebsiteDataTable extends DataTable
             'id',
             'user_id',
             'g_view_id',
-            'website_name'
+            'website_name',
+            'website_status',
         ];
     }
 
