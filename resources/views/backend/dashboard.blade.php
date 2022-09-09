@@ -42,7 +42,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Website Count</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $websitecount }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-globe fa-2x text-gray-300"></i>

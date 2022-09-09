@@ -31,8 +31,13 @@ Route::get('users', [App\Http\Controllers\AdminController::class, 'user_data'])-
 
 // Route for websiteTable in Admin
 Route::get('website', [App\Http\Controllers\AdminController::class, 'website_data'])->middleware('auth');
-Route::get('campaign', [App\Http\Controllers\AdminController::class, 'campaign'])->middleware('auth');
+Route::get('website/campaign', [App\Http\Controllers\AdminController::class, 'campaign'])->middleware('auth');
+Route::get('website/analytics', [App\Http\Controllers\AdminController::class, 'analytics'])->middleware('auth');
 Route::get('website/status-update/{id}/{status}', [App\Http\Controllers\AdminController::class, 'status_update'])->middleware('auth');
+
+
+//Route for users
+Route::get('website', [App\Http\Controllers\UserController::class, 'website_user'])->middleware('auth');
 
 //This route is for dashboard of both user and admin page
 Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory');

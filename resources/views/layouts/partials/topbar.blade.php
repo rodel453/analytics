@@ -69,7 +69,7 @@
                 </div>
                 <div>
                     <div class="small text-gray-500">{{ $notification->created_at->format('M d, Y') }}</div>
-                    <span class="font-weight-bold">USER {{ $notification->data['first_name'] }} ({{ $notification->data['email'] }}) has just registered.</span>
+                    <span class="font-weight-bold">USER {{ $notification->data['fullname'] }} ({{ $notification->data['email'] }}) has just registered.</span>
                 </div>
             </a>
             @endforeach

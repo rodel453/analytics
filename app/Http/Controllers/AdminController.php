@@ -80,4 +80,9 @@ class AdminController extends Controller
         return view('backend.campaign');
     }
 
+    public function analytics(){
+        
+        return view('backend.analytics');
+    }
+
 }

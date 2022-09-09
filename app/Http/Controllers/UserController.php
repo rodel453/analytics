@@ -10,4 +10,11 @@ class UserController extends Controller
     {
         return view('frontend.dashboard');
     }
+
+    public function website_user(){
+
+        // return Datatables::of(Users::query())->make(true);
+        return view('frontend.website');
+
+    }
 }

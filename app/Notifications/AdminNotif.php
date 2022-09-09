@@ -56,7 +56,7 @@ class AdminNotif extends Notification
     public function toArray($notifiable)
     {
         return [
-            'first_name' => $this->user->first_name,
+            'fullname' => $this->user->fullname,
             'email' => $this->user->email,
         ];
     }

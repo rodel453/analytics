@@ -31,9 +31,9 @@
             <div class="row">
                 <!-- Column -->
                 <div class="col-lg-4 col-xlg-3 col-md-5 mb-4">
-                    <div class="card">
+                    <div class="card border-primary">
                         <div class="card-body">
-                            <center class="mt-4"> <img src="{{ auth()->user()->picture }}" class="profile-user-img img-fluid rounded-circle admin_picture"
+                            <center class="mt-2"> <img src="{{ auth()->user()->picture }}" class="profile-user-img img-fluid rounded-circle admin_picture"
                                     width="150" />
                                 <h4 class="card-title mt-2">{{ $user->fullname }}</h4>
                                 <input type="file" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
@@ -41,21 +41,20 @@
                             </center>
                         </div>
                     </div>
-                    <div class="card mt-4">
+                    <!-- <div class="card mt-4">
                         <div class="card-body">
                             <h5>Website List</h5>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">GOOGLE.COM</li>
                                 <li class="list-group-item">YOUTUBE.COM</li>
-
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- Column -->
                 <!-- Column -->
                 <div class="col-lg-8 col-xlg-9 col-md-7 mb-4">
-                <div class="card">
+                <div class="card border-primary">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link active" href="#personal_info" data-toggle="tab"><i class="bi bi-file-earmark-person mr-2"></i>Personal Information</a></li>
