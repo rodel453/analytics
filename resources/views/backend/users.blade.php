@@ -44,22 +44,32 @@
     
           <div class="col-lg-4 col-xlg-3 col-md-5">
             <div class="box">
-              <img class="mb-3 profile-user-img img-fluid"  src="{{ auth()->user()->picture }}"
-                        alt="...">
+              <img id="view_picture" class="mb-3 profile-user-img img-fluid">
             </div>
           </div>
     
     
           <div class="col-lg-8 col-xlg-9 col-md-7">
-            <div class="box">
-            <label for="name" class="control-label">ID</label>
-            </div>
-            <div class="box">
-            <label for="name" class="control-label">Name</label>
-            </div>
-            <div class="box">
-            <label for="name" class="control-label">Email</label>
-            </div>
+          <div class="form-group">
+                  <label for="id" class="col-sm-2 control-label">ID</label>
+                   <div class="col-sm-12">
+                   <input readonly type="text" class="form-control" id="view_id" name="view_id" maxlength="50" required="">
+                   </div>
+               </div>
+
+               <div class="form-group">
+                  <label for="first_name" class="col-sm-2 control-label">Name</label>
+                   <div class="col-sm-12">
+                        <input readonly type="text" class="form-control" id="view_name" name="view_name" maxlength="50" required="">
+                   </div>
+               </div>
+     
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Email</label>
+                   <div class="col-sm-12">
+                   <input readonly type="text" class="form-control" id="view_email" name="view_email" maxlength="50" required="">
+                        </div>
+                    </div>
           </div>
     
         </div>
@@ -69,6 +79,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
+  </div>
   </div>
 </div>
 
@@ -87,21 +98,28 @@
       <div class="modal-body">
          <form id="userForm" name="userForm" class="form-horizontal">
             <div class="form-group">
-                  <label for="id" class="col-sm-2 control-label">ID</label>
+                  <label for="id" class="col-sm-4 control-label">ID</label>
                    <div class="col-sm-12">
                    <input readonly type="text" class="form-control" id="user_id" name="user_id" maxlength="50" required="">
                    </div>
                </div>
 
                <div class="form-group">
-                  <label for="first_name" class="col-sm-2 control-label">Name</label>
+                  <label for="first_name" class="col-sm-4 control-label">First Name</label>
                    <div class="col-sm-12">
                         <input type="text" class="form-control" id="first_name" name="first_name" maxlength="50" required="">
                    </div>
                </div>
+
+               <div class="form-group">
+                  <label for="last_name" class="col-sm-4 control-label">Last Name</label>
+                   <div class="col-sm-12">
+                        <input type="text" class="form-control" id="last_name" name="last_name" maxlength="50" required="">
+                   </div>
+               </div>
      
                <div class="form-group">
-                  <label class="col-sm-2 control-label">Email</label>
+                  <label class="col-sm-4 control-label">Email</label>
                    <div class="col-sm-12">
                    <input readonly type="text" class="form-control" id="email" name="email" maxlength="50" required="">
                         </div>
@@ -114,6 +132,8 @@
     </div>
   </div>
 </div>
+
+
 
       
          <!-- {{ url('users') }} -->
@@ -133,20 +153,31 @@
                ajax: '{{ url('users') }}',
                columns: [
                         { data: 'id', name: 'id' },
-                        { data: 'first_name', name: 'first_name' },
+                        { data: 'fullname', name: 'fullname' },
                         { data: 'email', name: 'email' },
                         { data: 'action', name: 'action', orderable: false, searchable: false},
                      ]
             });
 
 
+         $('body').on('click', '.viewUser', function () {
+         var view_user_id = $(this).data('id');
+         $.get("users/view" +'/' + view_user_id, function (data) {
+            $('#view_id').val(data.id);
+            $('#view_name').val(data.fullname);
+            $('#view_email').val(data.email);
+            $('#view_picture').attr("src", data.picture);
+        })
+    });
+
+
+
          $('body').on('click', '.editUser', function () {
          var user_id = $(this).data('id');
          $.get("users/edit" +'/' + user_id, function (data) {
-            $('#modelHeading').html("Edit Product");
-            $('#saveBtn').val("edit-user");
             $('#user_id').val(data.id);
             $('#first_name').val(data.first_name);
+            $('#last_name').val(data.last_name);
             $('#email').val(data.email);
         })
     });

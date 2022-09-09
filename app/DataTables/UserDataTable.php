@@ -78,7 +78,10 @@ class UserDataTable extends DataTable
         return [
             'id',
             'first_name',
-            'email'
+            'last_name',
+            'email',
+            'picture',
+            'fullname'
         ];
     }
 

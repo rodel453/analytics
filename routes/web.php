@@ -24,7 +24,8 @@ Route::get('test', function(){
 
 // Route for userTable in Admin
 Route::get('users/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->middleware('auth');
-Route::get('users/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->middleware('auth');
+Route::get('users/view/{id}', [App\Http\Controllers\AdminController::class, 'get_data'])->middleware('auth');
+Route::get('users/edit/{id}', [App\Http\Controllers\AdminController::class, 'get_data'])->middleware('auth');
 Route::post('users/update/', [App\Http\Controllers\AdminController::class, 'update'])->middleware('auth');
 Route::get('users', [App\Http\Controllers\AdminController::class, 'user_data'])->middleware('auth');
 

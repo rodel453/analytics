@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
+
+
 @section('content')
+
          <div class="container-fluid">
          <div class="row page-titles">
                 <div class="col-lg-4 col-xlg-3 col-md-5 align-self-center">

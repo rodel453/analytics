@@ -40,16 +40,23 @@ class AdminController extends Controller
     {
         $user_data = User::find($request->user_id);
         $user_data->first_name = $request->first_name;
+        $user_data->last_name = $request->last_name;
         $user_data->save();  
      
         return response()->json(['success'=>'User saved successfully.']);
     }
 
-    public function edit($id)
+    public function get_data($id)
     {
         $user = User::find($id);
         return response()->json($user);
     }
+
+    // public function view_user($id)
+    // {
+    //     $user = User::find($id);
+    //     return response()->json($user);
+    // }
 
 
 
