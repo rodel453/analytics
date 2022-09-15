@@ -34,8 +34,8 @@ class WebsiteDataTable extends DataTable
             
             }
             
-            $btn = '<a href="/website/campaign" data-id="'.$row->id.'" class="btn btn-info btn-sm mr-2">Campaign</a>';
-            $btn = $btn. '<a href="/website/analytics" data-id="'.$row->id.'" class="btn btn-info btn-sm mr-2">Analytics</a>';
+            $btn = '<a href="/admin/website/campaign" data-id="'.$row->id.'" class="btn btn-info btn-sm mr-2">Campaign</a>';
+            $btn = $btn. '<a href="/admin/website/analytics" data-id="'.$row->id.'" class="btn btn-info btn-sm mr-2">Analytics</a>';
             $btn = $btn.$temp_btn;
             
 

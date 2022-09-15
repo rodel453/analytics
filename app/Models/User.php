@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Website;
 
 class User extends Authenticatable
 {
@@ -60,5 +61,9 @@ class User extends Authenticatable
 
     public function getFullnameAttribute(){
         return "{$this->first_name} {$this->last_name}";
+    }
+
+    public function websites(){
+        return $this->hasMany('\App\Models\Website'); 
     }
 }

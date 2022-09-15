@@ -20,8 +20,9 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                         aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Website List:</div>
-                        <a class="dropdown-item" href="#">Youtube.com</a>
-                        <a class="dropdown-item" href="#">Google.com</a>
+                        @foreach($user_website as $website)
+                        <a class="dropdown-item" href="#">{{$website->website_name}}</a>
+                        @endforeach
                         <!-- <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a> -->
                     </div>

@@ -21,13 +21,14 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush text-center">
-                            <li class="list-group-item">YOUTUBE.COM</li>
-                            <li class="list-group-item">GOOGLE.COM</li>
-                            <li class="list-group-item">GITHUB.COM</li>
+                            @foreach($user_website as $website)
+                            <li class="list-group-item">{{$website->website_name}}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 </div>
+                
 
 
         <div class="col-lg-8 col-xlg-9 col-md-7 mb-4">
@@ -36,7 +37,7 @@
                     Add Website
                 </div><!-- /.card-header -->
                 <div class="card-body">
-                      <form class="form-horizontal" action="" method="POST" id="addWebsite">
+                      <form class="form-horizontal" action="/website-create" method="POST" >
                             @csrf
         
                             @if (session('status'))
@@ -55,7 +56,7 @@
                         <div class="form-group">
                         <label for="inputName6" class="col-sm-4 col-form-label">Google ID:</label>
                           <div class="col-sm-12">
-                            <input type="text" class="form-control" id="google_id" placeholder="Enter your website's Google ID" value="" name="google_id">
+                            <input type="text" class="form-control" id="g_view_id" placeholder="Enter your website's Google ID" value="" name="g_view_id">
                             <span class="text-danger error-text name_error"></span>
                           </div>
                         </div>
@@ -68,8 +69,6 @@
                     </div>
             </div>
             </div>
-
-
-
+            </div>
 </div>
 @endsection

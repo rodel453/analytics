@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('website', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('g_view_id');
             $table->string('website_name');
             $table->boolean('website_status');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
@@ -30,5 +32,8 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('website');
+        $table->dropForeign('website_user_id_foreign');
+        $table->dropIndex('website_user_id_index');
+        $table->dropColumn('user_id');
     }
 };

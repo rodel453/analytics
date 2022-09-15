@@ -19,7 +19,8 @@ class AuthController extends Controller
         $usercount = User::all()->count();
         return view('backend.dashboard',compact('usercount', 'websitecount'));
     } else {
-        return view('frontend.dashboard');
+        $user_website = User::find(auth()->user()->id)->websites()->get();
+        return view('frontend.dashboard', compact('user_website'));
     }
     }
 }

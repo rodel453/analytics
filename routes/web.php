@@ -23,21 +23,22 @@ Route::get('test', function(){
 
 
 // Route for userTable in Admin
-Route::get('users/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->middleware('auth');
-Route::get('users/view/{id}', [App\Http\Controllers\AdminController::class, 'get_data'])->middleware('auth');
-Route::get('users/edit/{id}', [App\Http\Controllers\AdminController::class, 'get_data'])->middleware('auth');
-Route::post('users/update/', [App\Http\Controllers\AdminController::class, 'update'])->middleware('auth');
-Route::get('users', [App\Http\Controllers\AdminController::class, 'user_data'])->middleware('auth');
+Route::get('admin/users/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->middleware('auth');
+Route::get('admin/users/view/{id}', [App\Http\Controllers\AdminController::class, 'get_data'])->middleware('auth');
+Route::get('admin/users/edit/{id}', [App\Http\Controllers\AdminController::class, 'get_data'])->middleware('auth');
+Route::post('admin/users/update/', [App\Http\Controllers\AdminController::class, 'update'])->middleware('auth');
+Route::get('admin/users', [App\Http\Controllers\AdminController::class, 'user_data'])->middleware('auth', 'admin_role');
 
 // Route for websiteTable in Admin
-Route::get('website', [App\Http\Controllers\AdminController::class, 'website_data'])->middleware('auth');
-Route::get('website/campaign', [App\Http\Controllers\AdminController::class, 'campaign'])->middleware('auth');
-Route::get('website/analytics', [App\Http\Controllers\AdminController::class, 'analytics'])->middleware('auth');
-Route::get('website/status-update/{id}/{status}', [App\Http\Controllers\AdminController::class, 'status_update'])->middleware('auth');
+Route::get('admin/website', [App\Http\Controllers\AdminController::class, 'website_data'])->middleware('auth', 'admin_role');
+Route::get('admin/website/campaign', [App\Http\Controllers\AdminController::class, 'campaign'])->middleware('auth');
+Route::get('admin/website/analytics', [App\Http\Controllers\AdminController::class, 'analytics'])->middleware('auth');
+Route::get('admin/website/status-update/{id}/{status}', [App\Http\Controllers\AdminController::class, 'status_update'])->middleware('auth');
 
 
 //Route for users
 Route::get('website', [App\Http\Controllers\UserController::class, 'website_user'])->middleware('auth');
+Route::post('/website-create', [App\Http\Controllers\UserController::class, 'website_store'])->middleware('auth');
 
 //This route is for dashboard of both user and admin page
 Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory');

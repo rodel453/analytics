@@ -10,7 +10,7 @@
                     <h3 class="text-themecolor">Campaign Table</h3>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="/website">Website</a></li>
+                        <li class="breadcrumb-item"><a href="/admin/website">Website</a></li>
                         <li class="breadcrumb-item">Campaign</li>
                     </ol>
                 </div>

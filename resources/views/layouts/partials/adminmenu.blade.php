@@ -99,14 +99,14 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('users') }}">
+        <a class="nav-link" href="/admin/users">
             <i class="fas fa-fw fa-user"></i>
             <span>Users</span></a>
     </li>
 
         <!-- Nav Item - Website -->
         <li class="nav-item">
-        <a class="nav-link" href="{{ url('website') }}">
+        <a class="nav-link" href="/admin/website">
             <i class="fas fa-fw fa-globe"></i>
             <span>Website</span></a>
     </li>

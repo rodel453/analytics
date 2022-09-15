@@ -35,7 +35,7 @@
           var table = $('#table').DataTable({
                processing: true,
                serverSide: true,
-               ajax: '{{ url('website') }}',
+               ajax: '{{ url('admin/website') }}',
                columns: [
                         { data: 'id', name: 'id' },
                         { data: 'user_id', name: 'user_id' },

@@ -150,7 +150,7 @@
           var table = $('#table').DataTable({
                processing: true,
                serverSide: true,
-               ajax: '{{ url('users') }}',
+               ajax: '{{ url('admin/users') }}',
                columns: [
                         { data: 'id', name: 'id' },
                         { data: 'fullname', name: 'fullname' },
