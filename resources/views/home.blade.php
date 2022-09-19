@@ -2,13 +2,7 @@
 
 @section('content')
 
-<?php
-$id = auth()->user();
-if ($id != null){
-    $utype = auth()->user()->user_type;
-}
 
-?> 
 
 <div class="container">
     <div class="row justify-content-center">
@@ -16,17 +10,17 @@ if ($id != null){
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
+                <div class="card-body" >
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    @if($utype == 1)
+                    
                         @forelse($notifications as $notification)
                             <div class="alert alert-success" role="alert">
-                                {{ $notification->created_at->format('M d, Y') }} USER {{ $notification->data['first_name'] }} ({{ $notification->data['email'] }}) has just registered.
+                                {{ $notification->created_at->format('M d, Y') }} user {{ $notification->data['action'] }}.
                                 <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">
                                     Mark as read
                                 </a>
@@ -40,23 +34,25 @@ if ($id != null){
                         @empty
                             There are no new notifications
                         @endforelse
-                    @else
-                        You are logged in!
-                    @endif
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
-<!-- @section('scripts')
-@parent
-    <script>
+
+
+
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
     function sendMarkRequest(id = null) {
         return $.ajax("{{ route('markNotification') }}", {
             method: 'POST',
             data: {
-                _token,
                 id
             }
         });
@@ -66,14 +62,16 @@ if ($id != null){
             let request = sendMarkRequest($(this).data('id'));
             request.done(() => {
                 $(this).parents('div.alert').remove();
+                
             });
         });
         $('#mark-all').click(function() {
             let request = sendMarkRequest();
             request.done(() => {
                 $('div.alert').remove();
+                $(".card").load(location.href + " .card");
             })
         });
     });
     </script>
-@endsection -->
+@endsection

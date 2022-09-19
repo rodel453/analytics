@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AdminNotif extends Notification
+class UpdateUserPictureNotification extends Notification
 {
     use Queueable;
 
@@ -33,21 +33,6 @@ class AdminNotif extends Notification
     }
 
     /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-
-    // public function toMail($notifiable)
-    // {
-    //     return (new MailMessage)
-    //                 ->line('The introduction to the notification.')
-    //                 ->action('Notification Action', url('/'))
-    //                 ->line('Thank you for using our application!');
-    // }
-
-    /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
@@ -57,8 +42,7 @@ class AdminNotif extends Notification
     {
         return [
             'fullname' => $this->user->fullname,
-            'email' => $this->user->email,
-            'action' => 'user '. $this->user->fullname . ' has registered',
+            'action' => 'user '. $this->user->fullname . ' updated his/her profile picture',
         ];
     }
 }

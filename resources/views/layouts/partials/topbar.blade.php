@@ -56,12 +56,12 @@
         </a>
         <!-- Dropdown - Alerts -->
         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-            aria-labelledby="alertsDropdown">
+            aria-labelledby="alertsDropdown" style="overflow:auto; max-height:200px;" >
             <h6 class="dropdown-header">
                 Alerts Center
             </h6>
-            @foreach(auth()->user()->unreadNotifications as $notification)
-            <a class="dropdown-item d-flex align-items-center" href="#">
+            @forelse(auth()->user()->unreadNotifications as $notification)
+            <a class="dropdown-item d-flex align-items-center" href="admin/users/">
                 <div class="mr-3">
                     <div class="icon-circle bg-primary">
                         <i class="fas fa-file-alt text-white"></i>
@@ -69,10 +69,14 @@
                 </div>
                 <div>
                     <div class="small text-gray-500">{{ $notification->created_at->format('M d, Y') }}</div>
-                    <span class="font-weight-bold">USER {{ $notification->data['fullname'] }} ({{ $notification->data['email'] }}) has just registered.</span>
+                    <span class="font-weight-bold">{{ $notification->data['action'] }}</span>
                 </div>
             </a>
-            @endforeach
+            @empty
+            <center>
+                There are no new notifications
+                
+            @endforelse
             <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
         </div>
     </li>

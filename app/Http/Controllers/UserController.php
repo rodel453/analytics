@@ -9,6 +9,7 @@ use Datatables;
 use App\DataTables\UserDataTable;
 use App\DataTables\WebsiteDataTable;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewWebsiteNotification;
 
 class UserController extends Controller
 {
@@ -27,13 +28,21 @@ class UserController extends Controller
 
     public function website_store(Request $request){
 
-        Website::create([
+       $website = Website::create([
             'user_id' => auth()->user()->id,
             'g_view_id' => $request->g_view_id,
             'website_name' => $request->website_name,
             'website_status' => 1,
         ]);
-            return redirect('/website');
+
+            $admins = User::where('user_type', 1)->get();
+
+            foreach ($admins as $key => $value) {
+
+                $value->notify(new NewWebsiteNotification($website));
+            } 
+
+            return back()->with("status", "Website Added Sucessfully");
 
     }
 }

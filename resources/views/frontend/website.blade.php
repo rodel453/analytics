@@ -21,9 +21,11 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush text-center">
-                            @foreach($user_website as $website)
+                            @forelse($user_website as $website)
                             <li class="list-group-item">{{$website->website_name}}</li>
-                            @endforeach
+                            @empty
+                              There are no websites listed
+                            @endforelse
                         </ul>
                     </div>
                 </div>

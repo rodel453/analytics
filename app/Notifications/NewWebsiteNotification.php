@@ -6,8 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\User;
 
-class AdminNotif extends Notification
+class NewWebsiteNotification extends Notification
 {
     use Queueable;
 
@@ -16,9 +17,9 @@ class AdminNotif extends Notification
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($website)
     {
-        $this->user = $user;
+        $this->website = $website;
     }
 
     /**
@@ -39,13 +40,6 @@ class AdminNotif extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
 
-    // public function toMail($notifiable)
-    // {
-    //     return (new MailMessage)
-    //                 ->line('The introduction to the notification.')
-    //                 ->action('Notification Action', url('/'))
-    //                 ->line('Thank you for using our application!');
-    // }
 
     /**
      * Get the array representation of the notification.
@@ -55,10 +49,13 @@ class AdminNotif extends Notification
      */
     public function toArray($notifiable)
     {
+
+        $user_data = User::find($this->website->user_id);
+
         return [
-            'fullname' => $this->user->fullname,
-            'email' => $this->user->email,
-            'action' => 'user '. $this->user->fullname . ' has registered',
+            'user_name' => $user_data->fullname,
+            'website_name' => $this->website->website_name,
+            'action' => 'user ' . $user_data->fullname . ' has created a website called ' . $this->website->website_name,
         ];
     }
 }
