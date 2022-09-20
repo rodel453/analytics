@@ -30,6 +30,8 @@
             </div>
 </div>
 
+<h6 class="text-themecolor">Google ID: </h6>
+
 <!-- Content Row -->
 <div class="row">
 

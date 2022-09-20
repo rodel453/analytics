@@ -133,12 +133,31 @@
   </div>
 </div>
 
+<!--delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger deleteUser">Delete</button>
+               </div>
+    </div>
+  </div>
+</div>
 
 
       
          <!-- {{ url('users') }} -->
        <script type="text/javascript">
          $(function() {
+
+        let delete_user_id;
 
 
          $.ajaxSetup({
@@ -200,23 +219,26 @@
         });
     });
 
-               $('body').on('click', '.deleteUser', function (){
-               var user_id = $(this).data("id");
-               var result = confirm("Are You sure want to delete !");
-                  if(result){
-                     $.ajax({
-                     type: "GET",
-                     url: "/users/delete"+'/'+user_id,
-                     success: function (data) {
-                     table.draw();
-                  },
-                     error: function (data) {
-                     console.log('Error:', data);
-                     }
-               });
-            }else{
-            return false;
-        }
+    $('body').on('click', '.delete_user', function (){
+              
+        delete_user_id = $(this).data("id");
+                
+    });
+
+    $('body').on('click', '.deleteUser', function (){
+              
+              $.ajax({
+              type: "GET",
+              url: "/admin/users/delete/"+delete_user_id,
+              success: function (data) {
+                $('#deleteModal').modal('hide');
+              table.draw();
+          },
+              error: function (data) {
+              console.log('Error:', data);
+              }
+        });
+
     });
 });
 </script>

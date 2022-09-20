@@ -39,6 +39,9 @@ Route::get('admin/website/status-update/{id}/{status}', [App\Http\Controllers\Ad
 //Route for users
 Route::get('website', [App\Http\Controllers\UserController::class, 'website_user'])->middleware('auth');
 Route::post('/website-create', [App\Http\Controllers\UserController::class, 'website_store'])->middleware('auth');
+Route::get('/website/edit/{id}', [App\Http\Controllers\UserController::class, 'get_websiteData'])->middleware('auth');
+Route::get('/website/delete/{id}', [App\Http\Controllers\UserController::class, 'website_delete'])->middleware('auth');
+Route::post('/website/update/', [App\Http\Controllers\UserController::class, 'website_update'])->middleware('auth');
 
 //This route is for dashboard of both user and admin page
 Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory');

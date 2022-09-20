@@ -45,4 +45,28 @@ class UserController extends Controller
             return back()->with("status", "Website Added Sucessfully");
 
     }
+
+    public function get_websiteData($id)
+    {
+        $website = Website::find($id);
+        return response()->json($website);
+    }
+
+    public function website_update(Request $request)
+    {
+
+        $website_data = Website::find($request->website_id);
+        $website_data->website_name = $request->website_name_edit;
+        $website_data->g_view_id = $request->g_id;
+        $website_data->save();  
+     
+        return response()->json(['success'=>'Website saved successfully.']);
+    }
+
+    public function website_delete($id)
+    {
+        Website::find($id)->delete();
+
+        return response()->json(['success'=>'Website deleted successfully.']);
+    }
 }

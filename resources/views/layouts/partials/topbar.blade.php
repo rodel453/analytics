@@ -6,7 +6,7 @@
 </button>
 
 <!-- Topbar Search -->
-<form
+<!-- <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     <div class="input-group">
         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -17,7 +17,7 @@
             </button>
         </div>
     </div>
-</form>
+</form> -->
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
@@ -77,20 +77,20 @@
                 There are no new notifications
                 
             @endforelse
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">Mark All as Read</a>
         </div>
     </li>
 
     <!-- Nav Item - Messages -->
-    <li class="nav-item dropdown no-arrow mx-1">
+    <!-- <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-envelope fa-fw"></i>
+            <i class="fas fa-envelope fa-fw"></i> -->
             <!-- Counter - Messages -->
-            <span class="badge badge-danger badge-counter">7</span>
-        </a>
+            <!-- <span class="badge badge-danger badge-counter">7</span> -->
+        <!-- </a> -->
         <!-- Dropdown - Messages -->
-        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+        <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="messagesDropdown">
             <h6 class="dropdown-header">
                 Message Center
@@ -145,7 +145,7 @@
             </a>
             <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
         </div>
-    </li>
+    </li> -->
 
     <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -164,14 +164,14 @@
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 Profile
             </a>
-            <a class="dropdown-item" href="#">
+            <!-- <a class="dropdown-item" href="#">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                 Settings
-            </a>
-            <a class="dropdown-item" href="#">
+            </a> -->
+            <!-- <a class="dropdown-item" href="#">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                 Activity Log
-            </a>
+            </a> -->
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout">
             <!-- <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal"> -->

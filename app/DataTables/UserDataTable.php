@@ -29,7 +29,7 @@ class UserDataTable extends DataTable
 
             $btn = '<a href="javascript:void(0)" data-id="'.$row->id.'" data-toggle="modal" data-target="#viewModal" class="viewUser btn btn-info btn-sm mr-2">View</a>';
             $btn = $btn.'<a href="javascript:void(0)" data-id="'.$row->id.'" data-toggle="modal" data-target="#editModal" class="edit btn btn-primary btn-sm mr-2 editUser">Edit</a>';
-            $btn = $btn.'<a href="javascript:void(0)" data-id="'.$row->id.'" class="deleteUser btn btn-danger btn-sm">Delete</a>';
+            $btn = $btn.'<a href="javascript:void(0)" data-id="'.$row->id.'" data-toggle="modal" data-target="#deleteModal" class="delete_user btn btn-danger btn-sm">Delete</a>';
 
                 return $btn;
         });
