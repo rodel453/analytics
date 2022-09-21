@@ -42,6 +42,8 @@
     <script src="{{ asset('plugins/ijaboCroptool/ijaboCropTool.min.js') }}"></script>
     <script src="{{ asset('startbootstrap/js/users-data.js') }}"></script>
     
+    <script src="{{ asset('startbootstrap/js/main.js') }}"></script>
+
     <script>
 
     $(document).on('click','#change_picture_btn', function(){

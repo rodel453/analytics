@@ -111,6 +111,111 @@
             <span>Websites</span></a>
     </li>
 
+    <hr class="sidebar-divider">
+
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Life Cycle
+    </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Acquisition</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/acquisition-overview">Acquisition Overview</a>
+                <a class="collapse-item" href="/user-acquisition">User acquisition</a>
+                <a class="collapse-item" href="/traffic-acquisition">Traffic acquisition</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-handshake"></i>
+            <span>Engagement</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                <a class="collapse-item" href="/engagement-overview">Engagement Overview</a>
+                <a class="collapse-item" href="/events">Events</a>
+                <a class="collapse-item" href="/conversions">Conversions</a>
+                <a class="collapse-item" href="/pages-screens">Pages and screens</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-coins"></i>
+            <span>Monetization</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/monetization-overview">Monetization Overview</a>
+                <a class="collapse-item" href="/ecommerce-purchases">Ecommerce purchases</a>
+                <a class="collapse-item" href="/inapp-purchases">In-app purchases</a>
+                <a class="collapse-item" href="/publisher-ads">Publisher ads</a>
+            </div>
+        </div>
+    </li>
+
+            <!-- Nav Item - Retention -->
+            <li class="nav-item">
+        <a class="nav-link" href="/retention">
+            <i class="fas fa-fw fa-signal"></i>
+            <span>Retention</span></a>
+    </li>
+
+    <hr class="sidebar-divider">
+
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        User
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#demographics"
+            aria-expanded="true" aria-controls="demographics">
+            <i class="fa fa-map" aria-hidden="true"></i>
+            <span>Demographics</span>
+        </a>
+        <div id="demographics" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/demographics-overview">Demographics Overview</a>
+                <a class="collapse-item" href="/demographics-details">Demographics Details</a>
+            </div>
+        </div>
+    </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tech"
+            aria-expanded="true" aria-controls="tech">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Tech</span>
+        </a>
+        <div id="tech" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/tech-overview">Tech Overview</a>
+                <a class="collapse-item" href="/tech-details">Tech Details</a>
+            </div>
+        </div>
+    </li>
+
     
 
     <!-- Divider -->

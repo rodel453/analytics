@@ -20,7 +20,15 @@ class AuthController extends Controller
         return view('backend.dashboard',compact('usercount', 'websitecount'));
     } else {
         $user_website = User::find(auth()->user()->id)->websites()->get();
-        return view('frontend.dashboard', compact('user_website'));
+        $website_data = $this->load_website_data();
+        return view('frontend.dashboard', compact('user_website', 'website_data'));
     }
+    }
+
+    public function load_website_data(){
+
+        $website_data = Website::where('user_id', auth()->user()->id)->first();
+        return $website_data;
+
     }
 }

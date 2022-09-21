@@ -5,6 +5,13 @@ use App\Models\User;
 use App\Http\Controllers\UpdateProfileController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AcquisitionController;
+use App\Http\Controllers\EngagementController;
+use App\Http\Controllers\MonetizationController;
+use App\Http\Controllers\RetentionController;
+use App\Http\Controllers\DemographicsController;
+use App\Http\Controllers\TechController;
+
 // use Auth;
 
 /*
@@ -42,9 +49,38 @@ Route::post('/website-create', [App\Http\Controllers\UserController::class, 'web
 Route::get('/website/edit/{id}', [App\Http\Controllers\UserController::class, 'get_websiteData'])->middleware('auth');
 Route::get('/website/delete/{id}', [App\Http\Controllers\UserController::class, 'website_delete'])->middleware('auth');
 Route::post('/website/update/', [App\Http\Controllers\UserController::class, 'website_update'])->middleware('auth');
+Route::get('/user/fetch_website/{id}', [App\Http\Controllers\UserController::class, 'fetch_website_data'])->middleware('auth');
+
+//Route for Acquisition Pages
+Route::get('acquisition-overview', [App\Http\Controllers\AcquisitionController::class, 'acquisition_overview'])->middleware('auth');
+Route::get('user-acquisition', [App\Http\Controllers\AcquisitionController::class, 'user_acquisition'])->middleware('auth');
+Route::get('traffic-acquisition', [App\Http\Controllers\AcquisitionController::class, 'traffic_acquisition'])->middleware('auth');
+
+//Route for Engagement Pages
+Route::get('engagement-overview', [App\Http\Controllers\EngagementController::class, 'engagement_overview'])->middleware('auth');
+Route::get('events', [App\Http\Controllers\EngagementController::class, 'events'])->middleware('auth');
+Route::get('conversions', [App\Http\Controllers\EngagementController::class, 'conversions'])->middleware('auth');
+Route::get('pages-screens', [App\Http\Controllers\EngagementController::class, 'pages_screens'])->middleware('auth');
+
+//Route for Monetization Pages
+Route::get('monetization-overview', [App\Http\Controllers\MonetizationController::class, 'monetization_overview'])->middleware('auth');
+Route::get('ecommerce-purchases', [App\Http\Controllers\MonetizationController::class, 'ecommerce_purchases'])->middleware('auth');
+Route::get('inapp-purchases', [App\Http\Controllers\MonetizationController::class, 'inapp_purchases'])->middleware('auth');
+Route::get('publisher-ads', [App\Http\Controllers\MonetizationController::class, 'publisher_ads'])->middleware('auth');
+
+//Route for Retention Page
+Route::get('retention', [App\Http\Controllers\RetentionController::class, 'index'])->middleware('auth');
+
+//Route for Demographics Pages
+Route::get('demographics-overview', [App\Http\Controllers\DemographicsController::class, 'demographics_overview'])->middleware('auth');
+Route::get('demographics-details', [App\Http\Controllers\DemographicsController::class, 'demographics_details'])->middleware('auth');
+
+//Route for Tech Pages
+Route::get('tech-overview', [App\Http\Controllers\TechController::class, 'tech_overview'])->middleware('auth');
+Route::get('tech-details', [App\Http\Controllers\TechController::class, 'tech_details'])->middleware('auth');
 
 //This route is for dashboard of both user and admin page
-Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory');
+Route::get('/', [App\Http\Controllers\Auth\AuthController::class, 'redirectTo'])->middleware('auth','PreventBackHistory')->name('dashboard');
 
 // This middleware is to prevent users from using the back button in browser
 Route::middleware(['middleware'=>'PreventBackHistory'])->group(function () {

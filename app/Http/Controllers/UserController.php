@@ -69,4 +69,12 @@ class UserController extends Controller
 
         return response()->json(['success'=>'Website deleted successfully.']);
     }
+
+    public function fetch_website_data($id){
+
+        $website_data = Website::find($id);
+
+        return response()->json($website_data);
+
+    }
 }

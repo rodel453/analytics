@@ -5,6 +5,28 @@
     <i class="fa fa-bars"></i>
 </button>
 
+@if (Route::currentRouteName() == 'dashboard' && auth()->user()->user_type == 2)
+
+ <div  style="border:none;"
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-gray-800">Websites</h6>
+                <div class="dropdown ml-2">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </a>
+                    <div style="right: auto !important;" class="dropdown-menu shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Website List:</div>
+                        @foreach($user_website as $website)
+                        <a data-id="{{$website->id}}" class="dropdown-item select_id" href="javascript:void(0)">{{$website->website_name}}</a>
+                        @endforeach
+                        <!-- <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
+                </div>
+            </div>
+@endif
+
 <!-- Topbar Search -->
 <!-- <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -23,13 +45,13 @@
 <ul class="navbar-nav ml-auto">
 
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-    <li class="nav-item dropdown no-arrow d-sm-none">
+    <!-- <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-search fa-fw"></i>
-        </a>
+        </a> -->
         <!-- Dropdown - Messages -->
-        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+        <!-- <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
             aria-labelledby="searchDropdown">
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
@@ -44,7 +66,7 @@
                 </div>
             </form>
         </div>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">

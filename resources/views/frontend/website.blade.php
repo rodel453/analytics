@@ -62,14 +62,14 @@
                         <div class="form-group">
                           <label for="inputName5" class="col-sm-4 col-form-label">Website Name:</label>
                           <div class="col-sm-12">
-                            <input type="text" class="form-control" id="website_name" placeholder="Enter your website name" value="" name="website_name">
+                            <input type="text" class="form-control" id="website_name" placeholder="Enter your website name" value="" name="website_name" required>
                             <span class="text-danger error-text name_error"></span>
                           </div>
                         </div>
                         <div class="form-group">
                         <label for="inputName6" class="col-sm-4 col-form-label">Google ID:</label>
                           <div class="col-sm-12">
-                            <input type="text" class="form-control" id="g_view_id" placeholder="Enter your website's Google ID" value="" name="g_view_id">
+                            <input type="text" class="form-control" id="g_view_id" placeholder="Enter your website's Google ID" value="" name="g_view_id" required>
                             <span class="text-danger error-text name_error"></span>
                           </div>
                         </div>
@@ -173,7 +173,7 @@
             data: form_data,
             contentType: false,
             processData: false,
-            url: "/website/update/",
+            url: "website/update",
             type: "POST",
             dataType: 'json',
             success: function (data) {

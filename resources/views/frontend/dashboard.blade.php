@@ -7,10 +7,10 @@
 
                     <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-<h3 class="text-themecolor">Frontend Dashboard</h3>
+<h3 class="website-title text-themecolor">{{$website_data->website_name ?? 'No Website Listed'}}</h3>
     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-            <div style="border:none;"
+            <!-- <div style="border:none;"
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-gray-800">Websites</h6>
                 <div class="dropdown ml-2">
@@ -22,15 +22,15 @@
                         <div class="dropdown-header">Website List:</div>
                         @foreach($user_website as $website)
                         <a class="dropdown-item" href="#">{{$website->website_name}}</a>
-                        @endforeach
+                        @endforeach -->
                         <!-- <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a> -->
-                    </div>
+                    <!-- </div>
                 </div>
-            </div>
+            </div> -->
 </div>
 
-<h6 class="text-themecolor">Google ID: </h6>
+<h6 class="website-google-id text-themecolor">Google ID: {{$website_data->g_view_id ?? 'No Google ID Listed'}} </h6>
 
 <!-- Content Row -->
 <div class="row">
