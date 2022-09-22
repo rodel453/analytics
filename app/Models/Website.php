@@ -16,5 +16,6 @@ class Website extends Model
         'g_view_id',
         'website_name',
         'website_status',
+        'website_file',
     ];
 }

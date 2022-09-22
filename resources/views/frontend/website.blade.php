@@ -74,6 +74,13 @@
                           </div>
                         </div>
                         <div class="form-group">
+                        <label for="inputName6" class="col-sm-4 col-form-label">Upload File: </label>
+                          <div class="col-sm-5">
+                            <input type="file"  id="file" name="file" required>
+                            <span class="text-danger error-text name_error"></span>
+                          </div>
+                        </div>
+                        <div class="form-group">
                           <div class="col-sm-8 col-sm-4">
                             <button type="submit" class="btn btn-primary">Add Website</button>
                           </div>

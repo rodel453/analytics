@@ -7,7 +7,7 @@
 
                     <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-<h3 class="text-themecolor ">Acquisition Overview</h3>
+<h3 class="text-themecolor ">Reports Snapshot</h3>
 
 </div>
 

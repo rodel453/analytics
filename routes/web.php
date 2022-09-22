@@ -11,6 +11,7 @@ use App\Http\Controllers\MonetizationController;
 use App\Http\Controllers\RetentionController;
 use App\Http\Controllers\DemographicsController;
 use App\Http\Controllers\TechController;
+use App\Http\Controllers\ReportController;
 
 // use Auth;
 
@@ -50,6 +51,11 @@ Route::get('/website/edit/{id}', [App\Http\Controllers\UserController::class, 'g
 Route::get('/website/delete/{id}', [App\Http\Controllers\UserController::class, 'website_delete'])->middleware('auth');
 Route::post('/website/update/', [App\Http\Controllers\UserController::class, 'website_update'])->middleware('auth');
 Route::get('/user/fetch_website/{id}', [App\Http\Controllers\UserController::class, 'fetch_website_data'])->middleware('auth');
+
+//Route for Report Pages
+Route::get('reports-snapshot', [App\Http\Controllers\ReportController::class, 'reports_snapshot'])->middleware('auth');
+Route::get('realtime', [App\Http\Controllers\ReportController::class, 'realtime'])->middleware('auth');
+
 
 //Route for Acquisition Pages
 Route::get('acquisition-overview', [App\Http\Controllers\AcquisitionController::class, 'acquisition_overview'])->middleware('auth');

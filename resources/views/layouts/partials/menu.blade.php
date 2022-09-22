@@ -113,6 +113,27 @@
 
     <hr class="sidebar-divider">
 
+    <div class="sidebar-heading">
+        Reports
+    </div>
+                
+            <li class="nav-item">
+                <a class="nav-link" href="/reports-snapshot">
+                <i class="fas fa-fw fa-calendar"></i>
+                <span>Reports Snapshot</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/realtime">
+                <i class="fas fa-fw fa-hourglass"></i>
+                <span>Realtime</span></a>
+            </li>
+
+
+
+
+    <hr class="sidebar-divider">
+
 
     <!-- Heading -->
     <div class="sidebar-heading">
