@@ -16,10 +16,6 @@ map_data = set_of_data.map(function(value, index){
 
 })
 
-
-
-
-
 function number_format(number, decimals, dec_point, thousands_sep) {
 
   
@@ -50,87 +46,181 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 
+if(ctx != null){
 
-var myBarChart = new Chart(ctx, {
+  var myBarChart = new Chart(ctx, {
   
   
-  type: 'bar',
-  data: {
-    labels: ["30 minute ago","29 minute ago","28 minute ago", "27 minute ago", "26 minute ago", "25 minute ago", "24 minute ago", "23 minute ago", "22 minute ago", "21 minute ago", "20 minute ago", "19 minute ago", "18 minute ago", "17 minute ago", "16 minute ago", "15 minute ago", "14 minute ago", "13 minute ago", "12 minute ago", "11 minute ago", "10 minute ago", "8 minute ago", "8 minute ago", "7 minute ago", "6 minute ago", "5 minute ago", "4 minute ago", "3 minute ago", "2 minute ago", "1 minute ago", "0 minute ago"],
-    datasets: [{
-      label: "USERS",
-      backgroundColor: "#4e73df",
-      hoverBackgroundColor: "#2e59d9",
-      borderColor: "#4e73df",
-      data: map_data,
-    }],
-  },
-  options: {
-    maintainAspectRatio: false,
-    layout: {
-      padding: {
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0
-      }
-    },
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'minute'
-        },
-        gridLines: {
-          display: false,
-          drawBorder: false
-        },
-        ticks: {
-          display: false,
-          maxTicksLimit: 5 
-        },
-        maxBarThickness: 5,
+    type: 'bar',
+    data: {
+      labels: ["30 minute ago","29 minute ago","28 minute ago", "27 minute ago", "26 minute ago", "25 minute ago", "24 minute ago", "23 minute ago", "22 minute ago", "21 minute ago", "20 minute ago", "19 minute ago", "18 minute ago", "17 minute ago", "16 minute ago", "15 minute ago", "14 minute ago", "13 minute ago", "12 minute ago", "11 minute ago", "10 minute ago", "8 minute ago", "8 minute ago", "7 minute ago", "6 minute ago", "5 minute ago", "4 minute ago", "3 minute ago", "2 minute ago", "1 minute ago", "0 minute ago"],
+      datasets: [{
+        label: "USERS",
+        backgroundColor: "#4e73df",
+        hoverBackgroundColor: "#2e59d9",
+        borderColor: "#4e73df",
+        data: map_data,
       }],
-      yAxes: [{
-        ticks: {
-          display: false,
-          min: 0,
-          max: 15,
-          maxTicksLimit: 5,
-          padding: 0,
-          // Include a dollar sign in the ticks
-          callback: function(value, index, values) {
-            return number_format(value);
+    },
+    options: {
+      maintainAspectRatio: false,
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0
+        }
+      },
+      scales: {
+        xAxes: [{
+          time: {
+            unit: 'minute'
+          },
+          gridLines: {
+            display: false,
+            drawBorder: false
+          },
+          ticks: {
+            display: false,
+            maxTicksLimit: 5 
+          },
+          maxBarThickness: 5,
+        }],
+        yAxes: [{
+          ticks: {
+            display: false,
+            min: 0,
+            max: 15,
+            maxTicksLimit: 5,
+            padding: 0,
+            // Include a dollar sign in the ticks
+            callback: function(value, index, values) {
+              return number_format(value);
+            }
+          },
+          gridLines: {
+            color: "rgb(234, 236, 244)",
+            zeroLineColor: "rgb(234, 236, 244)",
+            drawBorder: false,
+            display: false,
           }
-        },
-        gridLines: {
-          color: "rgb(234, 236, 244)",
-          zeroLineColor: "rgb(234, 236, 244)",
-          drawBorder: false,
-          display: false,
+        }],
+      },
+      legend: {
+        display: false
+      },
+      tooltips: {
+        titleMarginBottom: 10,
+        titleFontColor: '#6e707e',
+        titleFontSize: 12,
+        backgroundColor: "rgb(255,255,255)",
+        bodyFontColor: "#858796",
+        borderColor: '#dddfeb',
+        borderWidth: 1,
+        xPadding: 10,
+        yPadding: 10,
+        displayColors: false,
+        caretPadding: 5,
+        callbacks: {
+          label: function(tooltipItem, chart) {
+            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+            return datasetLabel + ": " +number_format(tooltipItem.yLabel);
+          }
         }
+      },
+    }
+  });
+
+}
+
+
+var ctx1 = document.getElementById("myBarChartHorizontal");
+
+if(ctx1 != null){
+
+  var myBarChart1 = new Chart(ctx1, {
+  
+  
+    type: 'bar',
+    data: {
+      labels: ["Organic Social", "Direct", "Organic Search", "Referral"],
+      datasets: [{
+        label: "Revenue",
+        backgroundColor: "#4e73df",
+        hoverBackgroundColor: "#2e59d9",
+        borderColor: "#4e73df",
+        data: [4215, 5312, 6251, 7841, 9821, 14984],
       }],
     },
-    legend: {
-      display: false
-    },
-    tooltips: {
-      titleMarginBottom: 10,
-      titleFontColor: '#6e707e',
-      titleFontSize: 12,
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 10,
-      yPadding: 10,
-      displayColors: false,
-      caretPadding: 5,
-      callbacks: {
-        label: function(tooltipItem, chart) {
-          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ": " +number_format(tooltipItem.yLabel);
+    options: {
+      maintainAspectRatio: false,
+      layout: {
+        padding: {
+          left: 10,
+          right: 25,
+          top: 25,
+          bottom: 0
         }
-      }
-    },
-  }
-});
+      },
+      scales: {
+        xAxes: [{
+          time: {
+            unit: 'month'
+          },
+          gridLines: {
+            display: false,
+            drawBorder: false
+          },
+          ticks: {
+            maxTicksLimit: 6
+          },
+          maxBarThickness: 25,
+        }],
+        yAxes: [{
+          ticks: {
+            min: 0,
+            max: 15000,
+            maxTicksLimit: 5,
+            padding: 10,
+            // Include a dollar sign in the ticks
+            callback: function(value, index, values) {
+              return '$' + number_format(value);
+            }
+          },
+          gridLines: {
+            color: "rgb(234, 236, 244)",
+            zeroLineColor: "rgb(234, 236, 244)",
+            drawBorder: false,
+            borderDash: [2],
+            zeroLineBorderDash: [2]
+          }
+        }],
+      },
+      legend: {
+        display: false
+      },
+      tooltips: {
+        titleMarginBottom: 10,
+        titleFontColor: '#6e707e',
+        titleFontSize: 14,
+        backgroundColor: "rgb(255,255,255)",
+        bodyFontColor: "#858796",
+        borderColor: '#dddfeb',
+        borderWidth: 1,
+        xPadding: 15,
+        yPadding: 15,
+        displayColors: false,
+        caretPadding: 10,
+        callbacks: {
+          label: function(tooltipItem, chart) {
+            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+            return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          }
+        }
+      },
+    }
+  });
+
+}
+

@@ -10,6 +10,7 @@ use App\DataTables\UserDataTable;
 use App\DataTables\WebsiteDataTable;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\NewWebsiteNotification;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -28,12 +29,20 @@ class UserController extends Controller
 
     public function website_store(Request $request){
 
+        $path = 'startbootstrap/website_file/';
+        $fileName = date('Ymd').uniqid().'.'.$request->website_file->getClientOriginalExtension();
+        $request->website_file->move(public_path($path), $fileName);
+      
+
        $website = Website::create([
             'user_id' => auth()->user()->id,
             'g_view_id' => $request->g_view_id,
             'website_name' => $request->website_name,
+            'website_file' => $path . $fileName,
             'website_status' => 1,
         ]);
+
+
 
             $admins = User::where('user_type', 1)->get();
 
@@ -54,11 +63,25 @@ class UserController extends Controller
 
     public function website_update(Request $request)
     {
+        $path = 'startbootstrap/website_file/';
+        $fileName = date('Ymd').uniqid().'.'.$request->website_file_edit->getClientOriginalExtension();
+        $request->website_file_edit->move(public_path($path), $fileName);
+
+        $oldFile = Website::find($request->website_id)->getAttributes()['website_file'];
+
+        if( $oldFile != '' ){
+            if( File::exists(public_path($oldFile))){
+                File::delete(public_path($oldFile));
+            }
+        }
 
         $website_data = Website::find($request->website_id);
         $website_data->website_name = $request->website_name_edit;
         $website_data->g_view_id = $request->g_id;
+        $website_data->website_file = $path . $fileName;
         $website_data->save();  
+
+
      
         return response()->json(['success'=>'Website saved successfully.']);
     }

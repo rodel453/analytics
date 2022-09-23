@@ -16,7 +16,7 @@
 <div class="row">
 
     <!-- Area Chart -->
-    <div class="col-xl-12 col-lg-12">
+    <div class="col-xl-6 col-lg-6">
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div
@@ -41,6 +41,21 @@
             <div class="card-body">
                 <div class="chart-area">
                     <canvas id="myAreaChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-6">
+        <!-- Bar Chart -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">New users by First user default channel grouping
+</h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-bar">
+                    <canvas id="myBarChartHorizontal"></canvas>
                 </div>
             </div>
         </div>

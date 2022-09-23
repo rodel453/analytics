@@ -88,10 +88,19 @@
                 
             <h6 class="m-0 font-weight-bold text-gray-800">USERS PER MINUTE</h6>
 
-            <h1 class="mt-2 font-weight-bold text-gray-800">0</h1>
+                        <!-- Bar Chart -->
+                        <div class="mb-4">
+                                <div>
+                                    <div style="height:100px;" class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+
 
             <div class="d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-gray-800">TOP PAGES & SCREENS</h6>
+            <h6 class="m-0 font-weight-bold text-gray-800">TOP COUNTRIES</h6>
             <h6 class="m-0 font-weight-bold text-gray-800">USERS</h6>
             </div>
             <hr>

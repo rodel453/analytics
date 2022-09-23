@@ -59,12 +59,19 @@
 
 
 
-            <div class="d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-gray-800">TOP COUNTRIES</h6>
-            <h6 class="m-0 font-weight-bold text-gray-800">USERS</h6>
+            <div class="d-flex justify-content-center">
+            <h6 style="font-size: 10px !important;" class="m-0 font-weight-bold text-gray-800">DEVICE CATEGORY IN LAST 30 MINUTES</h6>
             </div>
-            <hr>
 
+
+                                    <!-- Bar Chart -->
+                                    <div class="mt-4">
+                                <div>
+                                    <div style="height:100px;">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
             
 
 

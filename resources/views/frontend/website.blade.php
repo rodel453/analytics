@@ -50,7 +50,7 @@
                     Add Website
                 </div><!-- /.card-header -->
                 <div class="card-body">
-                      <form class="form-horizontal" action="/website-create" method="POST" >
+                      <form class="form-horizontal" action="/website-create" method="POST" enctype="multipart/form-data" >
                             @csrf
         
                             @if (session('status'))
@@ -76,7 +76,7 @@
                         <div class="form-group">
                         <label for="inputName6" class="col-sm-4 col-form-label">Upload File: </label>
                           <div class="col-sm-5">
-                            <input type="file"  id="file" name="file" required>
+                            <input type="file"  id="website_file" name="website_file" required>
                             <span class="text-danger error-text name_error"></span>
                           </div>
                         </div>
@@ -119,6 +119,14 @@
                    <div class="col-sm-12">
                         <input type="text" class="form-control" id="g_id" name="g_id" maxlength="50" required="">
                    </div>
+               </div>
+
+               <div class="form-group">
+                        <label for="inputName6" class="col-sm-4 col-form-label">Upload File: </label>
+                          <div class="col-sm-5">
+                            <input type="file"  id="website_file_edit" name="website_file_edit">
+                            <span class="text-danger error-text name_error"></span>
+                          </div>
                </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
