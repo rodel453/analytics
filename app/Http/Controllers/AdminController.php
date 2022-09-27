@@ -6,6 +6,7 @@ use App\Models\Website;
 use Illuminate\Http\Request;
 use Datatables;
 use App\DataTables\UserDataTable;
+use App\DataTables\NewUserDataTable;
 use App\DataTables\WebsiteDataTable;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +22,13 @@ class AdminController extends Controller
 
         // return Datatables::of(Users::query())->make(true);
         return $datatable->render('backend.users');
+
+    }
+
+    public function new_user_data(NewUserDataTable $datatable){
+
+        // return Datatables::of(Users::query())->make(true);
+        return $datatable->render('backend.new-users');
 
     }
 

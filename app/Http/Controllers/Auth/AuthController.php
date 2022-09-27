@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 // use Auth;
 use App\Models\User;
 use App\Models\Website;
+use Illuminate\Support\Carbon;
 
 class AuthController extends Controller
 {
@@ -17,7 +18,8 @@ class AuthController extends Controller
     if ($utype == 1 ) {
         $websitecount = Website::all()->count();
         $usercount = User::all()->count();
-        return view('backend.dashboard',compact('usercount', 'websitecount'));
+        $newUser = User::where('created_at', '>=', Carbon::now()->subDay())->count();
+        return view('backend.dashboard',compact('usercount', 'websitecount', 'newUser'));
     } else {
         $user_website = User::find(auth()->user()->id)->websites()->get();
         $website_data = $this->load_website_data();

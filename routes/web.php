@@ -37,6 +37,9 @@ Route::get('admin/users/edit/{id}', [App\Http\Controllers\AdminController::class
 Route::post('admin/users/update/', [App\Http\Controllers\AdminController::class, 'update'])->middleware('auth');
 Route::get('admin/users', [App\Http\Controllers\AdminController::class, 'user_data'])->middleware('auth', 'admin_role');
 
+// Route for newUserTable in Admin
+Route::get('admin/new-users', [App\Http\Controllers\AdminController::class, 'new_user_data'])->middleware('auth', 'admin_role');
+
 // Route for websiteTable in Admin
 Route::get('admin/website', [App\Http\Controllers\AdminController::class, 'website_data'])->middleware('auth', 'admin_role');
 Route::get('admin/website/campaign', [App\Http\Controllers\AdminController::class, 'campaign'])->middleware('auth');

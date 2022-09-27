@@ -58,9 +58,9 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Daily Visitor
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">New Users
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">12345</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $newUser }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -77,11 +77,12 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Pending Requests</div>
+                            Google Ads</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="bi bi-google fa-2x text-gray-300"></i>
+                        
                     </div>
                 </div>
             </div>
