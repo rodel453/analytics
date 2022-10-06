@@ -44,9 +44,137 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Bar Chart Example
-var ctx = document.getElementById("myBarChart");
+if ($('#myBarChartHorizontal1').length) {
 
-if(ctx != null){
+  $.ajax({
+  
+    url: 'get/analytics-data',
+    type: 'GET',
+    success: function(response){
+
+        draw_graph(response, document.getElementById('myBarChartHorizontal1'),"url", "pageViews");
+    }
+  
+  })
+  
+}
+
+function get_graph_data(data, key1 = null, key2 = null){
+  let graph_data = [];
+
+  let graph_data1 = $.map(data, function(obj){
+
+    return obj[key1];
+  })
+
+  let graph_data2 = $.map(data, function(obj){
+
+    return obj[key2];
+
+  })
+
+  let graph_data3 = Math.max(...data.map(obj => {
+
+      return obj[key2];
+
+  }));
+
+  graph_data.push(graph_data1);
+  graph_data.push(graph_data2);
+  graph_data.push(graph_data3);
+
+  return graph_data;
+
+}
+
+function draw_graph(data, ctx, key1 = null, key2 = null){
+  
+  let graph_data = get_graph_data(data, key1, key2);
+
+  var myBarChartHorizontal1 = new Chart(ctx, {
+  
+  type: 'bar',
+  data: {
+      labels: graph_data[0],
+      datasets: [{
+      label: key2,
+      backgroundColor: "#4e73df",
+      hoverBackgroundColor: "#2e59d9",
+      borderColor: "#4e73df",
+      data: graph_data[1],
+      }],
+  },
+  options: {
+      maintainAspectRatio: false,
+      layout: {
+      padding: {
+          left: 10,
+          right: 25,
+          top: 25,
+          bottom: 0
+      }
+      },
+      scales: {
+      xAxes: [{
+          time: {
+          unit: 'month'
+          },
+          gridLines: {
+          display: false,
+          drawBorder: false
+          },
+          ticks: {
+          maxTicksLimit: 6
+          },
+          maxBarThickness: 25,
+      }],
+      yAxes: [{
+          ticks: {
+          min: 0,
+          max: Math.ceil(graph_data[2] / 10) * 10 ,
+          maxTicksLimit: 5,
+          padding: 10,
+          // Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+              return number_format(value);
+          }
+          },
+          gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+          }
+      }],
+      },
+      legend: {
+      display: false
+      },
+      tooltips: {
+      titleMarginBottom: 10,
+      titleFontColor: '#6e707e',
+      titleFontSize: 14,
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+      callbacks: {
+          label: function(tooltipItem, chart) {
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+          return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
+          }
+      }
+      },
+  }
+  });
+}
+
+var ctx = document.getElementById("myBarChart");
 
   var myBarChart = new Chart(ctx, {
   
@@ -132,95 +260,20 @@ if(ctx != null){
     }
   });
 
-}
 
+  if ($('#myBarChartHorizontal').length) {
 
-var ctx1 = document.getElementById("myBarChartHorizontal");
+    $.ajax({
+    
+      url: 'get/users-type',
+      type: 'GET',
+      success: function(response){
 
-if(ctx1 != null){
-
-  var myBarChart1 = new Chart(ctx1, {
+          draw_graph(response, document.getElementById('myBarChartHorizontal'), "type", "sessions");
+      }
+    
+    })
   
-  
-    type: 'bar',
-    data: {
-      labels: ["Organic Social", "Direct", "Organic Search", "Referral"],
-      datasets: [{
-        label: "Revenue",
-        backgroundColor: "#4e73df",
-        hoverBackgroundColor: "#2e59d9",
-        borderColor: "#4e73df",
-        data: [4215, 5312, 6251, 7841, 9821, 14984],
-      }],
-    },
-    options: {
-      maintainAspectRatio: false,
-      layout: {
-        padding: {
-          left: 10,
-          right: 25,
-          top: 25,
-          bottom: 0
-        }
-      },
-      scales: {
-        xAxes: [{
-          time: {
-            unit: 'month'
-          },
-          gridLines: {
-            display: false,
-            drawBorder: false
-          },
-          ticks: {
-            maxTicksLimit: 6
-          },
-          maxBarThickness: 25,
-        }],
-        yAxes: [{
-          ticks: {
-            min: 0,
-            max: 15000,
-            maxTicksLimit: 5,
-            padding: 10,
-            // Include a dollar sign in the ticks
-            callback: function(value, index, values) {
-              return '$' + number_format(value);
-            }
-          },
-          gridLines: {
-            color: "rgb(234, 236, 244)",
-            zeroLineColor: "rgb(234, 236, 244)",
-            drawBorder: false,
-            borderDash: [2],
-            zeroLineBorderDash: [2]
-          }
-        }],
-      },
-      legend: {
-        display: false
-      },
-      tooltips: {
-        titleMarginBottom: 10,
-        titleFontColor: '#6e707e',
-        titleFontSize: 14,
-        backgroundColor: "rgb(255,255,255)",
-        bodyFontColor: "#858796",
-        borderColor: '#dddfeb',
-        borderWidth: 1,
-        xPadding: 15,
-        yPadding: 15,
-        displayColors: false,
-        caretPadding: 10,
-        callbacks: {
-          label: function(tooltipItem, chart) {
-            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-            return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
-          }
-        }
-      },
-    }
-  });
+  }
 
-}
 

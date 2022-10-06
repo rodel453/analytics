@@ -3,13 +3,42 @@ Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,Bli
 Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
-var ctx = document.getElementById("myPieChart");
+
+if ($('#myPieChart').length) {
+
+  $.ajax({
+  
+    url: 'get/top-browsers',
+    type: 'GET',
+    success: function(response){
+  
+      draw_top_browser(response, document.getElementById('myPieChart'));
+    }
+  
+  })
+
+}
+
+function draw_top_browser(data, ctx){
+
+  let graph_sessions = $.map(data, function(obj){
+
+    return obj.sessions;
+
+  })
+
+  let graph_browser = $.map(data, function(obj){
+
+      return obj.browser;
+  })
+
+
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: graph_browser,
     datasets: [{
-      data: [55, 30, 15],
+      data: graph_sessions,
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -33,3 +62,4 @@ var myPieChart = new Chart(ctx, {
     cutoutPercentage: 80,
   },
 });
+}

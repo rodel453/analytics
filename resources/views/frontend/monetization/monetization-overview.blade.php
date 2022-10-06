@@ -15,34 +15,87 @@
 
 <div class="row">
 
-    <!-- Area Chart -->
-    <div class="col-xl-12 col-lg-12">
+<div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
-            <div
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Total Revenue</h6>
-                <!-- <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div> -->
-            </div>
+            <div class="card-header p-2">
+                  <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active font-weight-bold" href="#users" data-toggle="tab">Total Revenue
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#new_users" data-toggle="tab">Ecommerce Revenue
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3>
+                    </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#avg_eng_time" data-toggle="tab">Total Ad Revenue
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3>
+                    </a></li>
+                  </ul>
+                </div>
             <!-- Card Body -->
             <div class="card-body">
-                <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
+                  <div class="tab-content">
+                    <div class="active tab-pane" id="users">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="new_users">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="avg_eng_time">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="total_revenue">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                    
+                  </div>
+                  <!-- /.tab-content -->
                 </div>
-            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+<div class="col-xl-12 col-lg-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header p-2">
+                  <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active font-weight-bold" href="#total_p" data-toggle="tab">Total Purchasers
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#f_t_p" data-toggle="tab">First Time Purchasers
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3>
+                    </a></li>
+                  </ul>
+                </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                  <div class="tab-content">
+                    <div class="active tab-pane" id="total_p">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="f_t_p">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- /.tab-content -->
+                </div>
         </div>
     </div>
 

@@ -30,7 +30,7 @@
             </div> -->
 </div>
 
-<h6 class="website-google-id text-themecolor">Google ID: {{$website_data->g_view_id ?? 'No Google ID Listed'}} </h6>
+<h6 class="website-google-id text-themecolor">Google ID: {{$website_data->g_view_id ?? ' '}} </h6>
 
 <!-- Content Row -->
 <div class="row">
@@ -42,8 +42,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                           website users</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                           website visitors</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$latest_page_views['visitors']}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -61,7 +61,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Page Views</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">20,000</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$latest_page_views['pageViews']}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-binoculars fa-2x text-gray-300"></i>
@@ -112,65 +112,88 @@
 
 <div class="row">
 
-    <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
+<div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
-            <div
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+            <div class="card-header p-2">
+                  <ul id="user_statistics" class="nav nav-pills">
+                    <li class="nav-item user_stats"><a class="nav-link active font-weight-bold" href="#users" data-toggle="tab" data-canvas="myAreaChart">Users
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3></a></li>
+                    <li class="nav-item user_stats"><a class="nav-link" href="#new_users" data-toggle="tab" data-canvas="myAreaChart2">New Users
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3>
+                    </a></li>
+                    <li class="nav-item user_stats"><a class="nav-link" href="#avg_eng_time" data-toggle="tab" data-canvas="myAreaChart3">Average Engagement Time
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3>
+                    </a></li>
+                    <li class="nav-item user_stats"><a class="nav-link" href="#total_revenue" data-toggle="tab" data-canvas="myAreaChart4">Total Revenue
+                    <h3 class="m-0 font-weight-bold text-white-800">50</h3>
+                    </a></li>
+                  </ul>
                 </div>
-            </div>
             <!-- Card Body -->
             <div class="card-body">
-                <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
+                  <div class="tab-content">
+                    <div class="active tab-pane" id="users">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="new_users">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart2"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="avg_eng_time">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart3"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="total_revenue">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart4"></canvas>
+                        </div>
+                    </div>
+                    
+                  </div>
+                  <!-- /.tab-content -->
                 </div>
-            </div>
         </div>
     </div>
 
-    <!-- Pie Chart -->
+  
     <div class="col-xl-4 col-lg-5">
         <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card Body -->
+            
             <div class="card-body">
-                <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                </div>
-                <div class="mt-4 text-center small">
+
+            <h6 class="m-0 font-weight-bold text-gray-800">USERS IN LAST 30 MINUTES</h6>
+            
+            <h1 class="mt-2 font-weight-bold text-gray-800">0</h1>
+                
+            <h6 class="m-0 font-weight-bold text-gray-800">USERS PER MINUTE</h6>
+
+                        <!-- Bar Chart -->
+                        <div class="">
+                                <div>
+                                    <div style="height:100px;" class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+            <div class="mb-2 d-flex justify-content-between">
+                <h6 class="m-0 font-weight-bold text-gray-800">TOP COUNTRIES</h6>
+                <h6 class="m-0 font-weight-bold text-gray-800">USERS</h6>
+            </div>
+            <hr>
+            <div class="mb-2 d-flex justify-content-between">
+                <h6 class="m-0 ml-3 font-weight-bold text-gray-800">Philippines</h6>
+                <h6 class="m-0 mr-3 font-weight-bold text-gray-800">5</h6>
+            </div>
+            
+                <!-- <div class="mt-4 text-center small">
                     <span class="mr-2">
                         <i class="fas fa-circle text-primary"></i> Direct
                     </span>
@@ -180,6 +203,67 @@
                     <span class="mr-2">
                         <i class="fas fa-circle text-info"></i> Referral
                     </span>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-xl-6 col-lg-6">
+        <!-- Bar Chart -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Top Refererrers
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-bar">
+                    <canvas id="myBarChartHorizontal1"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-6">
+        <!-- Bar Chart -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Types of Users
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-bar">
+                    <canvas id="myBarChartHorizontal"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<div class="row">
+    <div class="col-xl-6 col-lg-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Top Browsers</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
+                </div>
+                <div class="mt-2 text-center small d-flex flex-row align-items-center justify-content-around">
+                @forelse ($top_browsers as $top_browser)
+                <div class="mt-2 text-center small d-flex flex-column align-items-center justify-content-around">
+                    <h6 class="m-0 font-weight-bold text-gray-800">{{$top_browser['browser']}}</h6>
+                    <!-- <h6 class="m-0 font-weight-bold text-gray-800"></h6> -->
+                </div>
+                @empty
+                <h6 class="m-0 font-weight-bold text-gray-800">No Browser Detected</h6>
+                @endforelse
                 </div>
             </div>
         </div>

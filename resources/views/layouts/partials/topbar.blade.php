@@ -7,8 +7,8 @@
 
 @if (Route::currentRouteName() == 'dashboard' && auth()->user()->user_type == 2)
 
- <div  style="border:none;"
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+ <div 
+                class="ml-3 py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-gray-800">Websites</h6>
                 <div class="dropdown ml-2">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -42,7 +42,10 @@
 </form> -->
 
 <!-- Topbar Navbar -->
+
+
 <ul class="navbar-nav ml-auto">
+    
 
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <!-- <li class="nav-item dropdown no-arrow d-sm-none">
@@ -67,6 +70,9 @@
             </form>
         </div>
     </li> -->
+
+    <div class="topbar-divider d-none d-sm-block"></div>
+
 
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">

@@ -111,7 +111,7 @@
             <span>Websites</span></a>
     </li>
 
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider">
 
     <div class="sidebar-heading">
         Reports
@@ -127,7 +127,7 @@
                 <a class="nav-link" href="/realtime">
                 <i class="fas fa-fw fa-hourglass"></i>
                 <span>Realtime</span></a>
-            </li>
+            </li> -->
 
 
 

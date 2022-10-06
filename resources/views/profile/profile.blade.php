@@ -41,15 +41,6 @@
                             </center>
                         </div>
                     </div>
-                    <!-- <div class="card mt-4">
-                        <div class="card-body">
-                            <h5>Website List</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">GOOGLE.COM</li>
-                                <li class="list-group-item">YOUTUBE.COM</li>
-                            </ul>
-                        </div>
-                    </div> -->
                 </div>
                 <!-- Column -->
                 <!-- Column -->
@@ -175,6 +166,7 @@
             <!-- ============================================================== -->
             <!-- End PAge Content -->
             <!-- ============================================================== -->
+        </div>
         </div>
 
     <!-- Bootstrap core JavaScript-->
