@@ -12,6 +12,7 @@ use App\Http\Controllers\RetentionController;
 use App\Http\Controllers\DemographicsController;
 use App\Http\Controllers\TechController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\Campaign\OverviewController;
 
 // use Auth;
 
@@ -120,6 +121,9 @@ Route::post('/mark-as-read', [App\Http\Controllers\HomeController::class, 'markN
 // This route is for logout of both admin and user
 Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'logout'])->middleware('auth');
 
-Route::get('get/analytics-data', [App\Http\Controllers\Auth\AuthController::class, 'analytics_data'])->middleware('auth');
+Route::get('get/analytics-data', [App\Http\Controllers\Auth\AuthController::class, 'top_referrers'])->middleware('auth');
 Route::get('get/users-type', [App\Http\Controllers\Auth\AuthController::class, 'types_of_user'])->middleware('auth');
 Route::get('get/top-browsers', [App\Http\Controllers\Auth\AuthController::class, 'top_browsers'])->middleware('auth');
+
+//Route for Google ads
+Route::get('/campaign/overview', [App\Http\Controllers\Campaign\OverviewController::class, 'index'])->middleware('auth');

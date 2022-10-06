@@ -8,6 +8,7 @@
                     <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 <h3 class="website-title text-themecolor">{{$website_data->website_name ?? 'No Website Listed'}}</h3>
+<a href="/campaign/overview" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Google Ads</a>
     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
             <!-- <div style="border:none;"

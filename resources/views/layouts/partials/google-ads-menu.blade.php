@@ -1,11 +1,11 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Google Analytics</div>
+        <div class="sidebar-brand-text mx-3">Google Ads</div>
     </a>
 
     <!-- Divider -->
@@ -15,7 +15,62 @@
     <li class="nav-item active">
         <a class="nav-link" href="/">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>User Dashboard</span></a>
+            <span>Overview</span></a>
+    </li>
+
+        <!-- Nav Item - Website -->
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-globe"></i>
+            <span>Recommendation</span></a>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
+            aria-expanded="true" aria-controls="collapse1">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Ads & Assets</span>
+        </a>
+        <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="#">Route 1</a>
+                <a class="collapse-item" href="#">Route 2</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
+            aria-expanded="true" aria-controls="collapse2">
+            <i class="bi bi-file-earmark-fill"></i>
+            <span>Landing Pages</span>
+        </a>
+        <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="#">Route 1</a>
+                <a class="collapse-item" href="#">Route 2</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
+            aria-expanded="true" aria-controls="collapse3">
+            <i class="bi bi-key"></i>
+            <span>Keywords</span>
+        </a>
+        <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="#">Route 1</a>
+                <a class="collapse-item" href="#">Route 2</a>
+            </div>
+        </div>
     </li>
 
     <!-- Divider -->
@@ -65,9 +120,9 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
         Interface
-    </div>
+    </div> -->
 
     <!-- Nav Item - Pages Collapse Menu -->
     <!-- <li class="nav-item">
@@ -105,11 +160,11 @@
     </li> -->
 
         <!-- Nav Item - Website -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
         <a class="nav-link" href="{{ url('website') }}">
             <i class="fas fa-fw fa-globe"></i>
             <span>Websites</span></a>
-    </li>
+    </li> -->
 
     <!-- <hr class="sidebar-divider">
 
@@ -127,21 +182,21 @@
                 <a class="nav-link" href="/realtime">
                 <i class="fas fa-fw fa-hourglass"></i>
                 <span>Realtime</span></a>
-            </li> -->
+            </li>
 
 
 
 
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider"> -->
 
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
         Life Cycle
-    </div>
+    </div> -->
 
         <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
@@ -154,10 +209,10 @@
                 <a class="collapse-item" href="/traffic-acquisition">Traffic acquisition</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-handshake"></i>
@@ -165,18 +220,18 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
+            <div class="bg-white py-2 collapse-inner rounded"> -->
                 <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                <a class="collapse-item" href="/engagement-overview">Engagement Overview</a>
+                <!-- <a class="collapse-item" href="/engagement-overview">Engagement Overview</a>
                 <a class="collapse-item" href="/events">Events</a>
                 <a class="collapse-item" href="/conversions">Conversions</a>
                 <a class="collapse-item" href="/pages-screens">Pages and screens</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-coins"></i>
@@ -190,25 +245,25 @@
                 <a class="collapse-item" href="/publisher-ads">Publisher ads</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
             <!-- Nav Item - Retention -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
         <a class="nav-link" href="/retention">
             <i class="fas fa-fw fa-signal"></i>
             <span>Retention</span></a>
     </li>
 
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider"> -->
 
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
         User
-    </div>
+    </div> -->
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#demographics"
             aria-expanded="true" aria-controls="demographics">
             <i class="fa fa-map" aria-hidden="true"></i>
@@ -220,10 +275,10 @@
                 <a class="collapse-item" href="/demographics-details">Demographics Details</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tech"
             aria-expanded="true" aria-controls="tech">
             <i class="fas fa-fw fa-cog"></i>
@@ -235,12 +290,12 @@
                 <a class="collapse-item" href="/tech-details">Tech Details</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     
 
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+    <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

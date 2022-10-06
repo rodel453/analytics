@@ -55,7 +55,7 @@ class AuthController extends Controller
 
     }
 
-    public function analytics_data(){
+    public function top_referrers(){
 
         $json_response = $this->dynamic_http_client('https://api.mystaging.ml/api/fetchTopReferrers');
 
