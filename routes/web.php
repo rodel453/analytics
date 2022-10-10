@@ -124,6 +124,7 @@ Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'logout'])-
 Route::get('get/analytics-data', [App\Http\Controllers\Auth\AuthController::class, 'top_referrers'])->middleware('auth');
 Route::get('get/users-type', [App\Http\Controllers\Auth\AuthController::class, 'types_of_user'])->middleware('auth');
 Route::get('get/top-browsers', [App\Http\Controllers\Auth\AuthController::class, 'top_browsers'])->middleware('auth');
+// Route::get('get/top-country', [App\Http\Controllers\Auth\AuthController::class, 'top_country'])->middleware('auth');
 
 //Route for Google ads
 Route::get('/campaign/overview', [App\Http\Controllers\Campaign\OverviewController::class, 'index'])->middleware('auth');

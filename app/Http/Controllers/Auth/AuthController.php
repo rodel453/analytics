@@ -12,6 +12,7 @@ use App\Models\Website;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -27,11 +28,29 @@ class AuthController extends Controller
         $view_page = $this->dynamic_http_client('https://api.mystaging.ml/api/viewpage');
         $latest_page_views = $view_page[count($view_page) - 1];
         
+        $session_duration = $this->dynamic_http_client('https://api.mystaging.ml/api/TimeOnSite');
+        $avg_session_duration = $session_duration['rows'][0][1] / $session_duration['rows'][0][0];
         $top_browsers = $this->dynamic_http_client('https://api.mystaging.ml/api/fetchTopBrowsers');
+        $fix_top_browsers = [];
+        $max_value_browsers = array_sum(array_column($top_browsers, 'sessions'));
 
+        foreach ($top_browsers as $key => $value) {
+            
+            $temp_percentage = $value['sessions'] / $max_value_browsers * 100;
+
+            $fix_top_browsers[$key] = $value;
+            $fix_top_browsers[$key]['percentage'] = $temp_percentage;
+
+        }
+
+        $top_browsers = $fix_top_browsers;
+
+        $top_country = $this->dynamic_http_client('https://api.mystaging.ml/api/country');
+        // dd(json_decode($top_country->body()));
+        
         $user_website = User::find(auth()->user()->id)->websites()->get();
         $website_data = $this->load_website_data();
-        return view('frontend.dashboard', compact('user_website', 'website_data', 'latest_page_views', 'top_browsers'));
+        return view('frontend.dashboard', compact('user_website', 'website_data', 'latest_page_views', 'top_browsers', 'top_country', 'avg_session_duration'));
     }
     }
     public function load_website_data(){
@@ -47,7 +66,7 @@ class AuthController extends Controller
         // App/Http/Controllers/Auth/AuthController
         // $reponse = AuthController::dynamic_http_client('https')
         $response = Http::withHeaders([
-            'Authorization' => 'Bearer 4|eTHI19WxnLBjMjRyO2nqLQkWAIQFa74QuJ3GiBQq',
+            'Authorization' => 'Bearer 1|aAroKE1BBxHrCXIpv1lTYDG7xce3dmFC73j4cFws',
             'accept' => 'application/json'
         ])->get($url);
 
@@ -76,5 +95,12 @@ class AuthController extends Controller
 
         return response()->json($json_response);
     }
+
+    public function website_guid(){
+
+        dd('test');
+
+    }
+
     
 }

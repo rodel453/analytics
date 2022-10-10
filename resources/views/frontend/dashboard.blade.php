@@ -80,7 +80,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">avg session duration
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">12345</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $avg_session_duration }} seconds</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-hourglass-half fa-2x text-gray-300"></i>
@@ -189,11 +189,12 @@
                 <h6 class="m-0 font-weight-bold text-gray-800">USERS</h6>
             </div>
             <hr>
+            @foreach ($top_country['rows'] as $country)
             <div class="mb-2 d-flex justify-content-between">
-                <h6 class="m-0 ml-3 font-weight-bold text-gray-800">Philippines</h6>
-                <h6 class="m-0 mr-3 font-weight-bold text-gray-800">5</h6>
+                <h6 class="m-0 ml-3 font-weight-bold text-gray-800">{{$country[0]}}</h6>
+                <h6 class="m-0 mr-3 font-weight-bold text-gray-800">{{$country[1]}}</h6>
             </div>
-            
+            @endforeach
                 <!-- <div class="mt-4 text-center small">
                     <span class="mr-2">
                         <i class="fas fa-circle text-primary"></i> Direct
@@ -260,7 +261,7 @@
                 @forelse ($top_browsers as $top_browser)
                 <div class="mt-2 text-center small d-flex flex-column align-items-center justify-content-around">
                     <h6 class="m-0 font-weight-bold text-gray-800">{{$top_browser['browser']}}</h6>
-                    <!-- <h6 class="m-0 font-weight-bold text-gray-800"></h6> -->
+                    <h6 class="m-0 font-weight-bold text-gray-800">{{$top_browser['percentage']}}%</h6>
                 </div>
                 @empty
                 <h6 class="m-0 font-weight-bold text-gray-800">No Browser Detected</h6>

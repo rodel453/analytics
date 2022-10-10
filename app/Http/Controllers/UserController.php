@@ -88,6 +88,8 @@ class UserController extends Controller
 
     public function website_delete($id)
     {
+        $oldFile = Website::find($id)->getAttributes()['website_file'];
+        File::delete(public_path($oldFile));
         Website::find($id)->delete();
 
         return response()->json(['success'=>'Website deleted successfully.']);
