@@ -30,28 +30,30 @@ class AuthController extends Controller
         
         $session_duration = $this->dynamic_http_client('https://api.mystaging.ml/api/TimeOnSite');
         $avg_session_duration = $session_duration['rows'][0][1] / $session_duration['rows'][0][0];
+        $avg_session_duration_round = round($avg_session_duration, 2);
+        
+        $avg_page_load_time = $this->dynamic_http_client('https://api.mystaging.ml/api/PageLoadTime');
+
         $top_browsers = $this->dynamic_http_client('https://api.mystaging.ml/api/fetchTopBrowsers');
         $fix_top_browsers = [];
         $max_value_browsers = array_sum(array_column($top_browsers, 'sessions'));
-
         foreach ($top_browsers as $key => $value) {
             
             $temp_percentage = $value['sessions'] / $max_value_browsers * 100;
 
             $fix_top_browsers[$key] = $value;
-            $fix_top_browsers[$key]['percentage'] = $temp_percentage;
+            $fix_top_browsers[$key]['percentage'] = round($temp_percentage, 2);
 
         }
-
         $top_browsers = $fix_top_browsers;
 
         $top_country = $this->dynamic_http_client('https://api.mystaging.ml/api/country');
-        // dd(json_decode($top_country->body()));
         
-        $user_website = User::find(auth()->user()->id)->websites()->get();
+        $user_website = $this->dynamic_http_client('https://api.mystaging.ml/api/website-list');
         $website_data = $this->load_website_data();
-        return view('frontend.dashboard', compact('user_website', 'website_data', 'latest_page_views', 'top_browsers', 'top_country', 'avg_session_duration'));
+        return view('frontend.dashboard', compact('user_website', 'website_data', 'latest_page_views', 'top_browsers', 'top_country', 'avg_session_duration_round', 'avg_page_load_time'));
     }
+    
     }
     public function load_website_data(){
 
@@ -96,9 +98,11 @@ class AuthController extends Controller
         return response()->json($json_response);
     }
 
-    public function website_guid(){
+    public function device_category(){
 
-        dd('test');
+        $json_response = $this->dynamic_http_client('https://api.mystaging.ml/api/DeviceCategory');
+
+        return response()->json($json_response);
 
     }
 

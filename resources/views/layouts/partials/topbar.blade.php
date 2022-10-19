@@ -17,8 +17,9 @@
                     <div style="right: auto !important;" class="dropdown-menu shadow animated--fade-in"
                         aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Website List:</div>
+
                         @foreach($user_website as $website)
-                        <a data-id="{{$website->id}}" class="dropdown-item select_id" href="javascript:void(0)">{{$website->website_name}}</a>
+                        <a data-id="{{$website['id']}}" class="dropdown-item select_id" href="javascript:void(0)">{{$website['website_name']}}</a>
                         @endforeach
                         <!-- <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a> -->

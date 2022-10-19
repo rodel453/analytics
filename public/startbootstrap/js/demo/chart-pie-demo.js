@@ -19,6 +19,22 @@ if ($('#myPieChart').length) {
 
 }
 
+if ($('#myPieChart1').length) {
+
+  $.ajax({
+  
+    url: 'get/device-category',
+    type: 'GET',
+    success: function(response){
+  
+      draw_top_browser(response, document.getElementById('myPieChart1'));
+    }
+  
+  })
+}
+
+
+
 function draw_top_browser(data, ctx){
 
   let graph_sessions = $.map(data, function(obj){

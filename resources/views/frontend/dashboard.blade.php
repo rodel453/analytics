@@ -3,32 +3,14 @@
 
 @section('content')
 
+
 <div class="container-fluid">
 
                     <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 <h3 class="website-title text-themecolor">{{$website_data->website_name ?? 'No Website Listed'}}</h3>
 <a href="/campaign/overview" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Google Ads</a>
-    <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-            <!-- <div style="border:none;"
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-gray-800">Websites</h6>
-                <div class="dropdown ml-2">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Website List:</div>
-                        @foreach($user_website as $website)
-                        <a class="dropdown-item" href="#">{{$website->website_name}}</a>
-                        @endforeach -->
-                        <!-- <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a> -->
-                    <!-- </div>
-                </div>
-            </div> -->
+
 </div>
 
 <h6 class="website-google-id text-themecolor">Google ID: {{$website_data->g_view_id ?? ' '}} </h6>
@@ -80,7 +62,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">avg session duration
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $avg_session_duration }} seconds</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $avg_session_duration_round }} seconds</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-hourglass-half fa-2x text-gray-300"></i>
@@ -98,7 +80,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                            avg page load</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ round($avg_page_load_time['rows'][0][0], 2) }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-file fa-2x text-gray-300"></i>
@@ -256,6 +238,32 @@
             <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
                     <canvas id="myPieChart"></canvas>
+                </div>
+                <div class="mt-2 text-center small d-flex flex-row align-items-center justify-content-around">
+                @forelse ($top_browsers as $top_browser)
+                <div class="mt-2 text-center small d-flex flex-column align-items-center justify-content-around">
+                    <h6 class="m-0 font-weight-bold text-gray-800">{{$top_browser['browser']}}</h6>
+                    <h6 class="m-0 font-weight-bold text-gray-800">{{$top_browser['percentage']}}%</h6>
+                </div>
+                @empty
+                <h6 class="m-0 font-weight-bold text-gray-800">No Browser Detected</h6>
+                @endforelse
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-6">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Device Category</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart1"></canvas>
                 </div>
                 <div class="mt-2 text-center small d-flex flex-row align-items-center justify-content-around">
                 @forelse ($top_browsers as $top_browser)
