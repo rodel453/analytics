@@ -84,13 +84,16 @@
                 <h6 class="mt-1 font-weight-bold text-gray-800">First user default channel grouping</h6>
                 <div class="mt-2 d-flex justify-content-between">
                     <h6 class="m-0 font-weight-bold text-gray-600" style="text-overflow: ellipsis;
-                        overflow: hidden; 
-                        width: 160px; 
-
-                        white-space: nowrap;">FIRST USER DEFAULT CHANNEL GROUPING</h6>
+                        overflow: hidden; width: 160px; white-space: nowrap;">FIRST USER DEFAULT CHANNEL GROUPING</h6>
                     <h6 class="m-0 font-weight-bold text-gray-600">NEW USERS</h6>
                 </div>
                 <hr>
+                @foreach ($channelNewUser['rows'] as $channel)
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h6 class="m-0 ml-3 font-weight-bold text-gray-800">{{$channel[0]}}</h6>
+                        <h6 class="m-0 mr-3 font-weight-bold text-gray-800">{{$channel[1]}}</h6>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -109,6 +112,12 @@
                     <h6 class="m-0 font-weight-bold text-gray-600">SESSIONS</h6>
                 </div>
                 <hr>
+                @foreach ($channelSession['rows'] as $channel)
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h6 class="m-0 ml-3 font-weight-bold text-gray-800">{{$channel[0]}}</h6>
+                        <h6 class="m-0 mr-3 font-weight-bold text-gray-800">{{$channel[1]}}</h6>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

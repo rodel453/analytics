@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\AuthController;
 
 class AcquisitionController extends Controller
 {
@@ -15,7 +16,10 @@ class AcquisitionController extends Controller
 
     public function acquisition_overview(){
 
-        return view('frontend.acquisition.acquisition-overview');
+        $channelNewUser = AuthController::dynamic_http_client('https://api.mystaging.ml/api/channelGroupingNewUsers');
+        $channelSession = AuthController::dynamic_http_client('https://api.mystaging.ml/api/channelGroupingSessions');
+
+        return view('frontend.acquisition.acquisition-overview', compact('channelNewUser', 'channelSession'));
     }
 
     public function user_acquisition(){

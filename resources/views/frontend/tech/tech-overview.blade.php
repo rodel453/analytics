@@ -124,6 +124,12 @@
                     <h6 class="m-0 font-weight-bold text-gray-600">USERS</h6>
                 </div>
                 <hr>
+                @foreach ($userOS['rows'] as $OS)
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h6 class="m-0 ml-3 font-weight-bold text-gray-800">{{$OS[0]}}</h6>
+                        <h6 class="m-0 mr-3 font-weight-bold text-gray-800">{{$OS[1]}}</h6>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -140,6 +146,12 @@
                     <h6 class="m-0 font-weight-bold text-gray-600">USERS</h6>
                 </div>
                 <hr>
+                @foreach ($userPlatform['rows'] as $Platform)
+                    <div class="mb-2 d-flex justify-content-between">
+                        <h6 class="m-0 ml-3 font-weight-bold text-gray-800">{{$Platform[0]}}</h6>
+                        <h6 class="m-0 mr-3 font-weight-bold text-gray-800">{{$Platform[1]}}</h6>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

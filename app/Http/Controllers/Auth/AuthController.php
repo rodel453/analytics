@@ -62,7 +62,7 @@ class AuthController extends Controller
 
     }
 
-    public function dynamic_http_client($url){
+    public static function dynamic_http_client($url){
 
         // Call for other Controller
         // App/Http/Controllers/Auth/AuthController
