@@ -43,8 +43,53 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
+if ($('#myBarChartHorizontalUserLanguage').length) {
+
+  $.ajax({
+  
+    url: 'get/users-language',
+    type: 'GET',
+    success: function(response){ 
+
+         draw_graph(response, document.getElementById('myBarChartHorizontalUserLanguage'), '0', '1');
+    }
+  
+  })
+
+}
+
+if ($('#myBarChartHorizontalUserScreenResolution').length) {
+
+  $.ajax({
+  
+    url: 'get/users-resolution',
+    type: 'GET',
+    success: function(response){ 
+
+         draw_graph(response, document.getElementById('myBarChartHorizontalUserScreenResolution'), '0', '1');
+    }
+  
+  })
+
+}
+
+if ($('#myBarChartHorizontalUserBrowser').length) {
+
+  $.ajax({
+  
+    url: 'get/users-browser',
+    type: 'GET',
+    success: function(response){ 
+
+         draw_graph(response, document.getElementById('myBarChartHorizontalUserBrowser'), '0', '1');
+    }
+  
+  })
+
+}
+
 // Bar Chart Example
-if ($('#myBarChartHorizontal1').length) {
+if ($('#myBarChartHorizontalReferrers').length) {
 
   $.ajax({
   
@@ -52,7 +97,7 @@ if ($('#myBarChartHorizontal1').length) {
     type: 'GET',
     success: function(response){
 
-        draw_graph(response, document.getElementById('myBarChartHorizontal1'),"url", "pageViews");
+        draw_graph(response, document.getElementById('myBarChartHorizontalReferrers'),"url", "pageViews");
     }
   
   })
@@ -91,7 +136,7 @@ function draw_graph(data, ctx, key1 = null, key2 = null){
   
   let graph_data = get_graph_data(data, key1, key2);
 
-  var myBarChartHorizontal1 = new Chart(ctx, {
+  var myBarChartHorizontal = new Chart(ctx, {
   
   type: 'bar',
   data: {
@@ -124,7 +169,7 @@ function draw_graph(data, ctx, key1 = null, key2 = null){
           drawBorder: false
           },
           ticks: {
-          maxTicksLimit: 6
+          maxTicksLimit: 25
           },
           maxBarThickness: 25,
       }],
@@ -261,7 +306,7 @@ var ctx = document.getElementById("myBarChart");
   });
 
 
-  if ($('#myBarChartHorizontal').length) {
+  if ($('#myBarChartHorizontalUserTypes').length) {
 
     $.ajax({
     
@@ -269,11 +314,14 @@ var ctx = document.getElementById("myBarChart");
       type: 'GET',
       success: function(response){
 
-          draw_graph(response, document.getElementById('myBarChartHorizontal'), "type", "sessions");
+        
+          draw_graph(response, document.getElementById('myBarChartHorizontalUserTypes'), "type", "sessions");
       }
     
     })
   
   }
+
+
 
 

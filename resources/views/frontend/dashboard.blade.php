@@ -204,7 +204,7 @@
             </div>
             <div class="card-body">
                 <div class="chart-bar">
-                    <canvas id="myBarChartHorizontal1"></canvas>
+                    <canvas id="myBarChartHorizontalReferrers"></canvas>
                 </div>
             </div>
         </div>
@@ -219,7 +219,7 @@
             </div>
             <div class="card-body">
                 <div class="chart-bar">
-                    <canvas id="myBarChartHorizontal"></canvas>
+                    <canvas id="myBarChartHorizontalUserTypes"></canvas>
                 </div>
             </div>
         </div>
@@ -266,18 +266,19 @@
                     <canvas id="myPieChart1"></canvas>
                 </div>
                 <div class="mt-2 text-center small d-flex flex-row align-items-center justify-content-around">
-                @forelse ($top_browsers as $top_browser)
+                @forelse ($device_category_json as $device)
                 <div class="mt-2 text-center small d-flex flex-column align-items-center justify-content-around">
-                    <h6 class="m-0 font-weight-bold text-gray-800">{{$top_browser['browser']}}</h6>
-                    <h6 class="m-0 font-weight-bold text-gray-800">{{$top_browser['percentage']}}%</h6>
+                    <h6 class="m-0 font-weight-bold text-gray-800">{{ucfirst($device[0])}}</h6>
+                    <h6 class="m-0 font-weight-bold text-gray-800">{{$device['percentage']}}%</h6>
                 </div>
                 @empty
-                <h6 class="m-0 font-weight-bold text-gray-800">No Browser Detected</h6>
+                <h6 class="m-0 font-weight-bold text-gray-800">No Device Detected</h6>
                 @endforelse
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 
 </div>

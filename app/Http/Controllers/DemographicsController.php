@@ -23,4 +23,12 @@ class DemographicsController extends Controller
         return view('frontend.demographics.demographics-details');
     }
 
+    public function users_language(){
+
+        $json_response =  AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersLanguage');
+
+        return response()->json($json_response['rows']);
+
+    }
+
 }

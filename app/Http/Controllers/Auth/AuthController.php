@@ -46,12 +46,27 @@ class AuthController extends Controller
 
         }
         $top_browsers = $fix_top_browsers;
+    
+
+        $device_category = $this->dynamic_http_client('https://api.mystaging.ml/api/UsersDeviceCategory');
+        $device_category_json = $device_category['rows'];
+        $fix_top_device = [];
+        $max_value_device = array_sum(array_column($device_category_json, '1'));
+
+        foreach ($device_category_json as $key => $value) {
+            
+            $tempo_percentage = $value['1'] / $max_value_device * 100;
+
+            $fix_top_device[$key] = $value;
+            $fix_top_device[$key]['percentage'] = round($tempo_percentage, 2);
+        }
+        $device_category_json = $fix_top_device;
 
         $top_country = $this->dynamic_http_client('https://api.mystaging.ml/api/country');
         
         $user_website = $this->dynamic_http_client('https://api.mystaging.ml/api/website-list');
         $website_data = $this->load_website_data();
-        return view('frontend.dashboard', compact('user_website', 'website_data', 'latest_page_views', 'top_browsers', 'top_country', 'avg_session_duration_round', 'avg_page_load_time'));
+        return view('frontend.dashboard', compact('user_website', 'website_data', 'latest_page_views', 'top_browsers', 'top_country', 'avg_session_duration_round', 'avg_page_load_time', 'device_category_json'));
     }
     
     }
@@ -100,11 +115,14 @@ class AuthController extends Controller
 
     public function device_category(){
 
-        $json_response = $this->dynamic_http_client('https://api.mystaging.ml/api/DeviceCategory');
+        $json_response = $this->dynamic_http_client('https://api.mystaging.ml/api/UsersDeviceCategory');
 
-        return response()->json($json_response);
+        return response()->json($json_response['rows']);
 
     }
+
+
+    
 
     
 }

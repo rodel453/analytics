@@ -167,8 +167,9 @@
             <div class="card-body">
 
             <h6 class="mb-4 font-weight-bold text-gray-800">Users by Browser</h6>
-                
-                
+                <div class="chart-bar">
+                    <canvas id="myBarChartHorizontalUserBrowser"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -180,6 +181,19 @@
             <div class="card-body">
 
             <h6 class="mb-4 font-weight-bold text-gray-800">Users by Device category</h6>
+            <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart1"></canvas>
+                </div>
+                <div class="mt-2 text-center small d-flex flex-row align-items-center justify-content-around">
+                @forelse ($device_category_json as $device)
+                <div class="mt-2 text-center small d-flex flex-column align-items-center justify-content-around">
+                    <h6 class="m-0 font-weight-bold text-gray-800">{{ucfirst($device[0])}}</h6>
+                    <h6 class="m-0 font-weight-bold text-gray-800">{{$device['percentage']}}%</h6>
+                </div>
+                @empty
+                <h6 class="m-0 font-weight-bold text-gray-800">No Device Detected</h6>
+                @endforelse
+                </div>
 
             </div>
         </div>
@@ -189,20 +203,21 @@
 
 <div class="row">
 
-    <div class="col-xl-6 col-lg-6">
+    <div class="col-xl-8 col-lg-8">
         <div class="card shadow mb-4">
             
             <!-- Card Body -->
             <div class="card-body">
 
             <h6 class="mb-4 font-weight-bold text-gray-800">Users  by Screen resolution</h6>
-                
-                
+                <div class="chart-bar">
+                    <canvas id="myBarChartHorizontalUserScreenResolution"></canvas>
+                </div>    
             </div>
         </div>
     </div>
 
-    <div class="col-xl-6 col-lg-6">
+    <div class="col-xl-4 col-lg-4">
         <div class="card shadow mb-4">
             
             <!-- Card Body -->
