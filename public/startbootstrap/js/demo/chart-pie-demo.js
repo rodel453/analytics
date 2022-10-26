@@ -47,6 +47,11 @@ var myPieChart = new Chart(ctx, {
   options: {
     maintainAspectRatio: false,
     tooltips: {
+            callbacks: {
+        label: function(tooltipItem, data) {
+          return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + ' sessions';
+        }
+      },
       backgroundColor: "rgb(255,255,255)",
       bodyFontColor: "#858796",
       borderColor: '#dddfeb',
@@ -57,7 +62,9 @@ var myPieChart = new Chart(ctx, {
       caretPadding: 10,
     },
     legend: {
-      display: false
+      position: 'right',
+      display: true,
+      align: 'start'
     },
     cutoutPercentage: 80,
   },
@@ -110,6 +117,11 @@ var myPieChart = new Chart(ctx, {
   options: {
     maintainAspectRatio: false,
     tooltips: {
+      callbacks: {
+        label: function(tooltipItem, data) {
+          return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + ' users';
+        }
+      },
       backgroundColor: "rgb(255,255,255)",
       bodyFontColor: "#858796",
       borderColor: '#dddfeb',
@@ -120,7 +132,80 @@ var myPieChart = new Chart(ctx, {
       caretPadding: 10,
     },
     legend: {
-      display: false
+      position: 'right',
+      display: true,
+      align: 'start',
+      
+    },
+    cutoutPercentage: 80,
+  },
+});
+}
+
+if ($('#myPieChartPlatform').length) {
+
+  $.ajax({
+  
+    url: 'get/user-platform',
+    type: 'GET',
+    success: function(response){
+    
+      draw_user_platform(response, document.getElementById('myPieChartPlatform'));
+    }
+  
+  })
+}
+
+function draw_user_platform(data, ctx){
+
+  let graph_users = $.map(data, function(obj){
+    
+    
+    return obj[1];
+    
+
+  })
+
+  let graph_device = $.map(data, function(obj){
+
+    return obj[0];
+
+  })
+
+
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: graph_device,
+    datasets: [{
+      data: graph_users,
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      callbacks: {
+        label: function(tooltipItem, data) {
+          return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + ' users';
+        }
+      },
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      position: 'right',
+      display: true,
+      align: 'start',
+      
     },
     cutoutPercentage: 80,
   },

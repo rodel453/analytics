@@ -128,6 +128,7 @@ Route::get('get/device-category', [App\Http\Controllers\Auth\AuthController::cla
 Route::get('get/users-language', [App\Http\Controllers\DemographicsController::class, 'users_language'])->middleware('auth');
 Route::get('get/users-browser', [App\Http\Controllers\TechController::class, 'users_browser'])->middleware('auth');
 Route::get('get/users-resolution', [App\Http\Controllers\TechController::class, 'users_resolution'])->middleware('auth');
+Route::get('get/user-platform', [App\Http\Controllers\TechController::class, 'user_platform'])->middleware('auth');
 // Route::get('get/top-country', [App\Http\Controllers\Auth\AuthController::class, 'top_country'])->middleware('auth');
 
 //Route for Google ads

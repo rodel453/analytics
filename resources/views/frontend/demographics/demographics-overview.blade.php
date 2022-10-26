@@ -90,7 +90,7 @@
             <h6 class="mb-4 font-weight-bold text-gray-800">Users by Gender</h6>
             
                 <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
+                        <canvas id="myPieChart2"></canvas>
                 </div>
 
             </div>

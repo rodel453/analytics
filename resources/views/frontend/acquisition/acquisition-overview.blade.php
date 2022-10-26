@@ -22,9 +22,9 @@
             <div class="card-header p-2">
                   <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link active font-weight-bold" href="#users" data-toggle="tab">Users
-                    <h3 class="m-0 font-weight-bold text-white-800">50</h3></a></li>
+                    <h3 class="m-0 font-weight-bold text-white-800">{{$total_user}}</h3></a></li>
                     <li class="nav-item"><a class="nav-link" href="#new_users" data-toggle="tab">New Users
-                    <h3 class="m-0 font-weight-bold text-white-800">50</h3>
+                    <h3 class="m-0 font-weight-bold text-white-800">{{$total_newuser}}</h3>
                     </a></li>
                   </ul>
                 </div>

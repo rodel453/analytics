@@ -34,39 +34,50 @@ class AuthController extends Controller
         
         $avg_page_load_time = $this->dynamic_http_client('https://api.mystaging.ml/api/PageLoadTime');
 
-        $top_browsers = $this->dynamic_http_client('https://api.mystaging.ml/api/fetchTopBrowsers');
-        $fix_top_browsers = [];
-        $max_value_browsers = array_sum(array_column($top_browsers, 'sessions'));
-        foreach ($top_browsers as $key => $value) {
+        //top browser percentage
+        // $top_browsers = $this->dynamic_http_client('https://api.mystaging.ml/api/fetchTopBrowsers');
+        // $fix_top_browsers = [];
+        // $max_value_browsers = array_sum(array_column($top_browsers, 'sessions'));
+        // foreach ($top_browsers as $key => $value) {
             
-            $temp_percentage = $value['sessions'] / $max_value_browsers * 100;
+        //     $temp_percentage = $value['sessions'] / $max_value_browsers * 100;
 
-            $fix_top_browsers[$key] = $value;
-            $fix_top_browsers[$key]['percentage'] = round($temp_percentage, 2);
+        //     $fix_top_browsers[$key] = $value;
+        //     $fix_top_browsers[$key]['percentage'] = round($temp_percentage, 2);
 
-        }
-        $top_browsers = $fix_top_browsers;
+        // }
+        // $top_browsers = $fix_top_browsers;
     
+        // Device Category Percentage
+        // $device_category = $this->dynamic_http_client('https://api.mystaging.ml/api/UsersDeviceCategory');
+        // $device_category_json = $device_category['rows'];
+        // $fix_top_device = [];
+        // $max_value_device = array_sum(array_column($device_category_json, '1'));
 
-        $device_category = $this->dynamic_http_client('https://api.mystaging.ml/api/UsersDeviceCategory');
-        $device_category_json = $device_category['rows'];
-        $fix_top_device = [];
-        $max_value_device = array_sum(array_column($device_category_json, '1'));
-
-        foreach ($device_category_json as $key => $value) {
+        // foreach ($device_category_json as $key => $value) {
             
-            $tempo_percentage = $value['1'] / $max_value_device * 100;
+        //     $tempo_percentage = $value['1'] / $max_value_device * 100;
 
-            $fix_top_device[$key] = $value;
-            $fix_top_device[$key]['percentage'] = round($tempo_percentage, 2);
-        }
-        $device_category_json = $fix_top_device;
+        //     $fix_top_device[$key] = $value;
+        //     $fix_top_device[$key]['percentage'] = round($tempo_percentage, 2);
+        // }
+        // $device_category_json = $fix_top_device;
 
-        $top_country = $this->dynamic_http_client('https://api.mystaging.ml/api/country');
+        //Total user
+        $user_date = $this->dynamic_http_client('https://api.mystaging.ml/api/usersDate');
+        $user_date_row = $user_date['rows'];
+        $total_user = array_sum(array_column($user_date_row, '1'));
+
+        //Total new user
+        $new_user_date = $this->dynamic_http_client('https://api.mystaging.ml/api/newUsersDate');
+        $new_user_date_row = $new_user_date['rows'];
+        $total_newuser = array_sum(array_column($new_user_date_row, '1'));
+
+        $top_country = $this->dynamic_http_client('https://api.mystaging.ml/api/UsersCountry');
         
         $user_website = $this->dynamic_http_client('https://api.mystaging.ml/api/website-list');
         $website_data = $this->load_website_data();
-        return view('frontend.dashboard', compact('user_website', 'website_data', 'latest_page_views', 'top_browsers', 'top_country', 'avg_session_duration_round', 'avg_page_load_time', 'device_category_json'));
+        return view('frontend.dashboard', compact('user_website', 'website_data', 'latest_page_views', 'top_country', 'avg_session_duration_round', 'avg_page_load_time', 'total_user', 'total_newuser'));
     }
     
     }

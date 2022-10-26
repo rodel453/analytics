@@ -26,18 +26,7 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                </div>
-                <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-info"></i> Referral
-                    </span>
+                    <canvas id="myPieChartPlatform"></canvas>
                 </div>
             </div>
         </div>
@@ -180,21 +169,10 @@
             <!-- Card Body -->
             <div class="card-body">
 
-            <h6 class="mb-4 font-weight-bold text-gray-800">Users by Device category</h6>
+            <h6 class="mb-2 font-weight-bold text-gray-800">Users by Device category</h6>
             <div class="chart-pie pt-4 pb-2">
                     <canvas id="myPieChart1"></canvas>
                 </div>
-                <div class="mt-2 text-center small d-flex flex-row align-items-center justify-content-around">
-                @forelse ($device_category_json as $device)
-                <div class="mt-2 text-center small d-flex flex-column align-items-center justify-content-around">
-                    <h6 class="m-0 font-weight-bold text-gray-800">{{ucfirst($device[0])}}</h6>
-                    <h6 class="m-0 font-weight-bold text-gray-800">{{$device['percentage']}}%</h6>
-                </div>
-                @empty
-                <h6 class="m-0 font-weight-bold text-gray-800">No Device Detected</h6>
-                @endforelse
-                </div>
-
             </div>
         </div>
     </div>
