@@ -128,8 +128,141 @@ Route::get('get/device-category', [App\Http\Controllers\Auth\AuthController::cla
 Route::get('get/users-language', [App\Http\Controllers\DemographicsController::class, 'users_language'])->middleware('auth');
 Route::get('get/users-browser', [App\Http\Controllers\TechController::class, 'users_browser'])->middleware('auth');
 Route::get('get/users-resolution', [App\Http\Controllers\TechController::class, 'users_resolution'])->middleware('auth');
-Route::get('get/user-platform', [App\Http\Controllers\TechController::class, 'user_platform'])->middleware('auth');
 // Route::get('get/top-country', [App\Http\Controllers\Auth\AuthController::class, 'top_country'])->middleware('auth');
 
-//Route for Google ads
-Route::get('/campaign/overview', [App\Http\Controllers\Campaign\OverviewController::class, 'index'])->middleware('auth');
+//Route for Groundtruth Account Pages
+Route::get('/ads/account', [App\Http\Controllers\Groundtruth\OverviewController::class, 'index'])->middleware('auth');
+Route::get('/ads/account-conversion-tracking', [App\Http\Controllers\Groundtruth\OverviewController::class, 'ads_account_conversion_tracking'])->middleware('auth');
+Route::get('/ads/account/adgroups-view/{campaign_id}', [App\Http\Controllers\Groundtruth\OverviewController::class, 'ads_account_adgroups_view'])->middleware('auth');
+Route::get('/get/account/table-account-adgroups/{campaign_id}', [App\Http\Controllers\Groundtruth\OverviewController::class, 'fetch_ads_account_adgroups'])->middleware('auth');
+
+Route::get('/ads/account/campaign-view/{campaign_id}', [App\Http\Controllers\Groundtruth\OverviewController::class, 'ads_account_campaign_view'])->middleware('auth');
+Route::get('/get/account/table-account-campaign/{campaign_id}', [App\Http\Controllers\Groundtruth\OverviewController::class, 'fetch_ads_account_campaign'])->middleware('auth');
+
+
+//Route for Groundtruth Account fetch table data
+Route::get('/get/table-account', [App\Http\Controllers\Groundtruth\OverviewController::class, 'fetch_ads_account'])->middleware('auth');
+Route::get('/get/table-account-conversion-tracking', [App\Http\Controllers\Groundtruth\OverviewController::class, 'fetch_ads_account_conversion_tracking'])->middleware('auth');
+
+Route::get('/ads/campaign-daily', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_daily'])->middleware('auth');
+Route::get('/ads/campaign-totals', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_totals'])->middleware('auth');
+Route::get('/ads/campaign-product', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_product'])->middleware('auth');
+Route::get('/ads/campaign-locations', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_locations'])->middleware('auth');
+Route::get('/ads/campaign-sv-locations', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_sv_locations'])->middleware('auth');
+Route::get('/ads/campaign-behavioral-audience', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_behavioral_audience'])->middleware('auth');
+Route::get('/ads/campaign-category', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_category'])->middleware('auth');
+Route::get('/ads/campaign-brand-affinity', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_brand_affinity'])->middleware('auth');
+Route::get('/ads/campaign-demographic', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_demographic'])->middleware('auth');
+Route::get('/ads/campaign-device-type', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_device_type'])->middleware('auth');
+
+Route::get('/ads/campaign-daily/campaign-view/{group_id}', [App\Http\Controllers\Groundtruth\CampaignController::class, 'ads_campaign_daily_view'])->middleware('auth');
+
+
+//Route for Groundtruth Campaign fetch table data
+Route::get('/get/table-campaign-daily', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_daily'])->middleware('auth');
+Route::get('/get/table-campaign-totals', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_totals'])->middleware('auth');
+Route::get('/get/table-campaign-product', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_product'])->middleware('auth');
+Route::get('/get/table-campaign-locations', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_locations'])->middleware('auth');
+Route::get('/get/table-campaign-sv-locations', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_sv_locations'])->middleware('auth');
+Route::get('/get/table-campaign-behavioral', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_behavioral'])->middleware('auth');
+Route::get('/get/table-campaign-category', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_category'])->middleware('auth');
+Route::get('/get/table-campaign-brand', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_brand'])->middleware('auth');
+Route::get('/get/table-campaign-demographic', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_demographic'])->middleware('auth');
+Route::get('/get/table-campaign-device', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_device'])->middleware('auth');
+
+//Route for Groundtruth Creatives Pages
+Route::get('/ads/creatives-product', [App\Http\Controllers\Groundtruth\CreativesController::class, 'ads_creatives_product'])->middleware('auth');
+Route::get('/ads/creatives-daily', [App\Http\Controllers\Groundtruth\CreativesController::class, 'ads_creatives_daily'])->middleware('auth');
+Route::get('/ads/creatives-behavioral-audience', [App\Http\Controllers\Groundtruth\CreativesController::class, 'ads_creatives_behavioral_audience'])->middleware('auth');
+Route::get('/ads/creatives-category', [App\Http\Controllers\Groundtruth\CreativesController::class, 'ads_creatives_category'])->middleware('auth');
+Route::get('/ads/creatives-brand-affinity', [App\Http\Controllers\Groundtruth\CreativesController::class, 'ads_creatives_brand_affinity'])->middleware('auth');
+
+
+//Route for Groundtruth Creatives fetch table data
+Route::get('/get/table-creatives-product', [App\Http\Controllers\Groundtruth\CreativesController::class, 'fetch_ads_creatives_product'])->middleware('auth');
+Route::get('/get/table-creatives-daily', [App\Http\Controllers\Groundtruth\CreativesController::class, 'fetch_ads_creatives_daily'])->middleware('auth');
+Route::get('/get/table-creatives-behavioral', [App\Http\Controllers\Groundtruth\CreativesController::class, 'fetch_ads_creatives_behavioral'])->middleware('auth');
+Route::get('/get/table-creatives-category', [App\Http\Controllers\Groundtruth\CreativesController::class, 'fetch_ads_creatives_category'])->middleware('auth');
+Route::get('/get/table-creatives-brand', [App\Http\Controllers\Groundtruth\CreativesController::class, 'fetch_ads_creatives_brand'])->middleware('auth');
+
+//Route for Groundtruth Adgroups Pages
+Route::get('/ads/adgroup-daily', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroup_daily'])->middleware('auth');
+Route::get('/ads/adgroup-totals', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroup_total'])->middleware('auth');
+Route::get('/ads/adgroup-locations', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroup_locations'])->middleware('auth');
+Route::get('/ads/adgroup-sv-locations', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroup_sv_locations'])->middleware('auth');
+Route::get('/ads/adgroups-product', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroups_product'])->middleware('auth');
+Route::get('/ads/adgroups-behavioral-audience', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroups_behavioral_audience'])->middleware('auth');
+Route::get('/ads/adgroups-category', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroups_category'])->middleware('auth');
+Route::get('/ads/adgroups-brand-affinity', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroups_brand_affinity'])->middleware('auth');
+Route::get('/ads/adgroups-device-type', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'ads_adgroups_device_type'])->middleware('auth');
+
+//Route for Groundtruth Adgroups fetchh table data
+Route::get('/get/table-adgroup-daily', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroup_daily'])->middleware('auth');
+Route::get('/get/table-adgroup-totals', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroup_totals'])->middleware('auth');
+Route::get('/get/table-adgroup-locations', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroup_locations'])->middleware('auth');
+Route::get('/get/table-adgroup-sv-locations', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroup_sv_locations'])->middleware('auth');
+Route::get('/get/table-adgroups-product', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroups_product'])->middleware('auth');
+Route::get('/get/table-adgroups-behavioral', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroups_behavioral'])->middleware('auth');
+Route::get('/get/table-adgroups-category', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroups_category'])->middleware('auth');
+Route::get('    ', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroups_brand'])->middleware('auth');
+Route::get('/get/table-adgroups-device', [App\Http\Controllers\Groundtruth\AdgroupsController::class, 'fetch_ads_adgroups_device'])->middleware('auth');
+
+
+
+//Route for Groundtruth Org Pages
+Route::get('/ads/org-totals', [App\Http\Controllers\Groundtruth\OrgController::class, 'ads_org_totals'])->middleware('auth');
+
+//Route for Groundtruth Org fetch table data
+Route::get('/get/table-org-totals', [App\Http\Controllers\Groundtruth\OrgController::class, 'fetch_ads_org_totals'])->middleware('auth');
+
+//Route for Groundtruth v2 Campaign Pages
+Route::get('/ads/v2/campaign-product', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'ads_v2_campaign_product'])->middleware('auth');
+Route::get('/ads/v2/campaign-behavioral-audience', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'ads_v2_campaign_behavioral_audience'])->middleware('auth');
+Route::get('/ads/v2/campaign-category', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'ads_v2_campaign_category'])->middleware('auth');
+Route::get('/ads/v2/campaign-brand-affinity', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'ads_v2_campaign_brand_affinity'])->middleware('auth');
+Route::get('/ads/v2/campaign-sv-locations', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'ads_v2_campaign_sv_locations'])->middleware('auth');
+Route::get('/ads/v2/campaign-publisher', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'ads_v2_campaign_publisher'])->middleware('auth');
+
+//Route for Groundtruth v2 Campaign fetch table data
+Route::get('/get/v2/table-campaign-product', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'fetch_ads_v2_campaign_product'])->middleware('auth');
+Route::get('/get/v2/table-campaign-behavioral', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'fetch_ads_v2_campaign_behavioral'])->middleware('auth');
+Route::get('/get/v2/table-campaign-category', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'fetch_ads_v2_campaign_category'])->middleware('auth');
+Route::get('/get/v2/table-campaign-brand', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'fetch_ads_v2_campaign_brand'])->middleware('auth');
+Route::get('/get/v2/table-campaign-publisher', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'fetch_ads_v2_campaign_publisher'])->middleware('auth');
+Route::get('/get/v2/table-campaign-sv-locations', [App\Http\Controllers\Groundtruth\V2CampaignController::class, 'fetch_ads_v2_campaign_sv_locations'])->middleware('auth');
+
+//Route for Groundtruth v2 Creatives Pages
+Route::get('/ads/v2/creatives-product', [App\Http\Controllers\Groundtruth\V2CreativesController::class, 'ads_v2_creatives_product'])->middleware('auth');
+Route::get('/ads/v2/creatives-behavioral-audience', [App\Http\Controllers\Groundtruth\V2CreativesController::class, 'ads_v2_creatives_behavioral_audience'])->middleware('auth');
+Route::get('/ads/v2/creatives-category', [App\Http\Controllers\Groundtruth\V2CreativesController::class, 'ads_v2_creatives_category'])->middleware('auth');
+Route::get('/ads/v2/creatives-brand-affinity', [App\Http\Controllers\Groundtruth\V2CreativesController::class, 'ads_v2_brand_affinity'])->middleware('auth');
+
+
+//Route for Groundtruth v2 Creatives fetch table data
+Route::get('/get/v2/table-creatives-product', [App\Http\Controllers\Groundtruth\V2CreativesController::class, 'fetch_ads_v2_creatives_product'])->middleware('auth');
+Route::get('/get/v2/table-creatives-behavioral', [App\Http\Controllers\Groundtruth\V2CreativesController::class, 'fetch_ads_v2_creatives_behavioral'])->middleware('auth');
+Route::get('/get/v2/table-creatives-category', [App\Http\Controllers\Groundtruth\V2CreativesController::class, 'fetch_ads_v2_creatives_category'])->middleware('auth');
+Route::get('/get/v2/table-creatives-brand', [App\Http\Controllers\Groundtruth\V2CreativesController::class, 'fetch_ads_v2_creatives_brand'])->middleware('auth');
+
+//Route for Groundtruth Adgroups Pages
+Route::get('/ads/v2/adgroups-product', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'ads_v2_adgroups_product'])->middleware('auth');
+Route::get('/ads/v2/adgroups-behavioral-audience', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'ads_v2_adgroups_behavioral_audience'])->middleware('auth');
+Route::get('/ads/v2/adgroups-category', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'ads_v2_adgroups_category'])->middleware('auth');
+Route::get('/ads/v2/adgroups-brand-affinity', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'ads_v2_adgroups_brand_affinity'])->middleware('auth');
+Route::get('/ads/v2/adgroups-sv-locations', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'ads_v2_adgroups_sv_locations'])->middleware('auth');
+Route::get('/ads/v2/adgroups-publisher', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'ads_v2_adgroups_publisher'])->middleware('auth');
+
+//Route for Groundtruth v2 Campaign fetch table data
+Route::get('/get/v2/table-adgroups-product', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'fetch_ads_v2_adgroups_product'])->middleware('auth');
+Route::get('/get/v2/table-adgroups-behavioral', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'fetch_ads_v2_adgroups_behavioral'])->middleware('auth');
+Route::get('/get/v2/table-adgroups-category', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'fetch_ads_v2_adgroups_category'])->middleware('auth');
+Route::get('/get/v2/table-adgroups-brand', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'fetch_ads_v2_adgroups_brand'])->middleware('auth');
+Route::get('/get/v2/table-adgroups-publisher', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'fetch_ads_v2_adgroups_publisher'])->middleware('auth');
+
+Route::get('/get/v2/table-adgroups-sv-locations', [App\Http\Controllers\Groundtruth\V2AdgroupsController::class, 'fetch_ads_v2_adgroups_sv_locations'])->middleware('auth');
+
+
+Route::post('/fetch/userDate', [App\Http\Controllers\UserController::class, 'fetch_userDate']);
+
+
+Route::get('/get/table-campaign-daily-view', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_daily_chart'])->middleware('auth');

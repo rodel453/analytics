@@ -177,7 +177,7 @@ function draw_graph(data, ctx, key1 = null, key2 = null){
           ticks: {
           min: 0,
           max: Math.ceil(graph_data[2] / 10) * 10 ,
-          maxTicksLimit: 5,
+          maxTicksLimit: 4,
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
@@ -314,7 +314,7 @@ var ctx = document.getElementById("myBarChart");
       type: 'GET',
       success: function(response){
 
-        
+         
           draw_graph(response, document.getElementById('myBarChartHorizontalUserTypes'), "type", "sessions");
       }
     

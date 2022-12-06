@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,3 +23,9 @@ Route::get('/test', function () {
     return response('Test API', 200)
                   ->header('Content-Type', 'application/json');
 });
+
+Route::get('/chart-data', [App\Http\Controllers\Groundtruth\CampaignController::class, 'fetch_ads_campaign_daily_view']);
+
+
+
+

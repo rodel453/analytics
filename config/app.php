@@ -183,7 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         // Server needed this class
-        // Yajra\DataTables\HtmlServiceProvider::class,
+        Yajra\DataTables\HtmlServiceProvider::class,
         /*
          * Package Service Providers...
          */

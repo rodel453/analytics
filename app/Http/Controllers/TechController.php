@@ -13,8 +13,8 @@ class TechController extends Controller
 
     public function tech_overview(){
 
-        $userOS = AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersOperatingSystem');
-        $userPlatform = AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersPlatform');
+        $userOS = AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersOperatingSystem', AuthController::get_api_data());
+        $userPlatform = AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersPlatform', AuthController::get_api_data());
 
         // $device_category = AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersDeviceCategory');
         // $device_category_json = $device_category['rows'];
@@ -40,7 +40,7 @@ class TechController extends Controller
 
     public function users_browser(){
 
-        $json_response =  AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersBrowser');
+        $json_response =  AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersBrowser', AuthController::get_api_data());
 
         return response()->json($json_response['rows']);
 
@@ -48,15 +48,7 @@ class TechController extends Controller
 
     public function users_resolution(){
 
-        $json_response =  AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersScreenResolution');
-
-        return response()->json($json_response['rows']);
-
-    }
-
-    public function user_platform(){
-
-        $json_response =  AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersPlatform');
+        $json_response =  AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersScreenResolution', AuthController::get_api_data());
 
         return response()->json($json_response['rows']);
 

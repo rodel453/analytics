@@ -13,7 +13,7 @@ class DemographicsController extends Controller
 
     public function demographics_overview(){
 
-        $userCity = AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersCity');
+        $userCity = AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersCity', AuthController::get_api_data());
 
         return view('frontend.demographics.demographics-overview', compact('userCity'));
     }
@@ -25,7 +25,7 @@ class DemographicsController extends Controller
 
     public function users_language(){
 
-        $json_response =  AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersLanguage');
+        $json_response =  AuthController::dynamic_http_client('https://api.mystaging.ml/api/UsersLanguage', AuthController::get_api_data());
 
         return response()->json($json_response['rows']);
 

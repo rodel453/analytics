@@ -7,8 +7,8 @@
 
 @if (Route::currentRouteName() == 'dashboard' && auth()->user()->user_type == 2)
 
- <div 
-                class="ml-3 py-3 d-flex flex-row align-items-center justify-content-between">
+ <div  style="border:none;"
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-gray-800">Websites</h6>
                 <div class="dropdown ml-2">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -17,7 +17,6 @@
                     <div style="right: auto !important;" class="dropdown-menu shadow animated--fade-in"
                         aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Website List:</div>
-
                         @foreach($user_website as $website)
                         <a data-id="{{$website['id']}}" class="dropdown-item select_id" href="javascript:void(0)">{{$website['website_name']}}</a>
                         @endforeach
@@ -43,8 +42,6 @@
 </form> -->
 
 <!-- Topbar Navbar -->
-
-
 <ul class="navbar-nav ml-auto">
     
 

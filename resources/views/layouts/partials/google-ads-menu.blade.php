@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/ads/account">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Google Ads</div>
+        <div class="sidebar-brand-text mx-3">Groundtruth</div>
     </a>
 
     <!-- Divider -->
@@ -13,30 +13,44 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="/">
+        <a class="nav-link" href="/ads/account">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Overview</span></a>
+            <span>Ads Account</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/ads/account-conversion-tracking">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Ads Account Conversion</span></a>
     </li>
 
         <!-- Nav Item - Website -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="/ads/campaign-d">
             <i class="fas fa-fw fa-globe"></i>
-            <span>Recommendation</span></a>
-    </li>
+            <span>Ads Campaign</span></a>
+    </li> -->
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
             aria-expanded="true" aria-controls="collapse1">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Ads & Assets</span>
+            <span>Ads Campaign</span>
         </a>
         <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="#">Route 1</a>
-                <a class="collapse-item" href="#">Route 2</a>
+                <h6 class="collapse-header">Campaign</h6>
+                <a class="collapse-item" href="/ads/campaign-daily">Campaign Daily</a>
+                <a class="collapse-item" href="/ads/campaign-totals">Campaign Totals</a>
+                <a class="collapse-item" href="/ads/campaign-product">Campaign Product</a>
+                <a class="collapse-item" href="/ads/campaign-locations">Campaign Locations</a>
+                <a class="collapse-item" href="/ads/campaign-sv-locations">Campaign SV Locations</a>
+                <a class="collapse-item" href="/ads/campaign-behavioral-audience">Campaign Behavior</a>
+                <a class="collapse-item" href="/ads/campaign-category">Campaign Category</a>
+                <a class="collapse-item" href="/ads/campaign-brand-affinity">Campaign Brand Affinity</a>
+                <a class="collapse-item" href="/ads/campaign-demographic">Campaign Demographic</a>
+                <a class="collapse-item" href="/ads/campaign-device-type">Campaign Device Type</a>
             </div>
         </div>
     </li>
@@ -46,13 +60,39 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
             aria-expanded="true" aria-controls="collapse2">
             <i class="bi bi-file-earmark-fill"></i>
-            <span>Landing Pages</span>
+            <span>Ads Creatives</span>
         </a>
         <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="#">Route 1</a>
-                <a class="collapse-item" href="#">Route 2</a>
+                <h6 class="collapse-header">Creatives</h6>
+                <a class="collapse-item" href="/ads/creatives-product">Creatives Product</a>
+                <a class="collapse-item" href="/ads/creatives-daily">Creatives Daily</a>
+                <a class="collapse-item" href="/ads/creatives-behavioral-audience">Creatives Behavior</a>
+                <a class="collapse-item" href="/ads/creatives-category">Creatives Category</a>
+                <a class="collapse-item" href="/ads/creatives-brand-affinity">Creatives Brand Affinity</a>
+            </div>
+        </div>
+    </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6"
+            aria-expanded="true" aria-controls="collapse6">
+            <i class="bi bi-file-earmark-fill"></i>
+            <span>Ads Adgroups</span>
+        </a>
+        <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Adgroups</h6>
+                <a class="collapse-item" href="/ads/adgroup-daily">Adgroup Daily</a>
+                <a class="collapse-item" href="/ads/adgroup-totals">Adgroup Totals</a>
+                <a class="collapse-item" href="/ads/adgroup-locations">Adgroup Locations</a>
+                <a class="collapse-item" href="/ads/adgroup-sv-locations">Adgroup SV Locations</a>
+                <a class="collapse-item" href="/ads/adgroups-product">Adgroups Product</a>
+                <a class="collapse-item" href="/ads/adgroups-behavioral-audience">Adgroups Behavior</a>
+                <a class="collapse-item" href="/ads/adgroups-category">Adgroups Category</a>
+                <a class="collapse-item" href="/ads/adgroups-brand-affinity">Adgroups Brand Affinity</a>
+                <a class="collapse-item" href="/ads/adgroups-device-type">Adgroups Device Type</a>
             </div>
         </div>
     </li>
@@ -62,251 +102,86 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
             aria-expanded="true" aria-controls="collapse3">
             <i class="bi bi-key"></i>
-            <span>Keywords</span>
+            <span>Ads Organization</span>
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="#">Route 1</a>
-                <a class="collapse-item" href="#">Route 2</a>
+                <h6 class="collapse-header">Organization</h6>
+                <a class="collapse-item" href="/ads/org-totals">Organization Totals</a>
             </div>
         </div>
     </li>
 
-    <!-- Divider -->
-    <!-- <hr class="sidebar-divider"> -->
-
-    <!-- Heading -->
-    <!-- <div class="sidebar-heading">
-        Interface
-    </div> -->
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
-            </div>
-        </div>
-    </li> -->
-
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
-    </li> -->
-
+    
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <!-- <div class="sidebar-heading">
-        Interface
-    </div> -->
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
-        </div>
-    </li> -->
-
-    <!-- Nav Item - Charts -->
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-    </li> -->
-
-    <!-- Nav Item - Tables -->
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
-    </li> -->
-
-        <!-- Nav Item - Website -->
-        <!-- <li class="nav-item">
-        <a class="nav-link" href="{{ url('website') }}">
-            <i class="fas fa-fw fa-globe"></i>
-            <span>Websites</span></a>
-    </li> -->
-
-    <!-- <hr class="sidebar-divider">
-
-    <div class="sidebar-heading">
-        Reports
-    </div>
-                
-            <li class="nav-item">
-                <a class="nav-link" href="/reports-snapshot">
-                <i class="fas fa-fw fa-calendar"></i>
-                <span>Reports Snapshot</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/realtime">
-                <i class="fas fa-fw fa-hourglass"></i>
-                <span>Realtime</span></a>
-            </li>
-
-
-
-
-    <hr class="sidebar-divider"> -->
-
-
-    <!-- Heading -->
-    <!-- <div class="sidebar-heading">
-        Life Cycle
-    </div> -->
-
         <!-- Nav Item - Pages Collapse Menu -->
-    <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Acquisition</span>
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4"
+            aria-expanded="true" aria-controls="collapse4">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Ads v2 Campaign</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/acquisition-overview">Acquisition Overview</a>
-                <a class="collapse-item" href="/user-acquisition">User acquisition</a>
-                <a class="collapse-item" href="/traffic-acquisition">Traffic acquisition</a>
+                <h6 class="collapse-header">v2 Campaign</h6>
+                <a class="collapse-item" href="/ads/v2/campaign-product">v2 Campaign Product</a>
+                <a class="collapse-item" href="/ads/v2/campaign-behavioral-audience">v2 Campaign Behavior</a>
+                <a class="collapse-item" href="/ads/v2/campaign-category">v2 Campaign Category</a>
+                <a class="collapse-item" href="/ads/v2/campaign-brand-affinity">v2 Campaign Brand</a>
+                <a class="collapse-item" href="/ads/v2/campaign-sv-locations">v2 Campaign SV Locations</a>
+                <a class="collapse-item" href="/ads/v2/campaign-publisher">v2 Campaign Publisher</a>
             </div>
         </div>
-    </li> -->
-
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-handshake"></i>
-            <span>Engagement</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded"> -->
-                <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                <!-- <a class="collapse-item" href="/engagement-overview">Engagement Overview</a>
-                <a class="collapse-item" href="/events">Events</a>
-                <a class="collapse-item" href="/conversions">Conversions</a>
-                <a class="collapse-item" href="/pages-screens">Pages and screens</a>
-            </div>
-        </div>
-    </li> -->
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-coins"></i>
-            <span>Monetization</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/monetization-overview">Monetization Overview</a>
-                <a class="collapse-item" href="/ecommerce-purchases">Ecommerce purchases</a>
-                <a class="collapse-item" href="/inapp-purchases">In-app purchases</a>
-                <a class="collapse-item" href="/publisher-ads">Publisher ads</a>
-            </div>
-        </div>
-    </li> -->
-
-            <!-- Nav Item - Retention -->
-            <!-- <li class="nav-item">
-        <a class="nav-link" href="/retention">
-            <i class="fas fa-fw fa-signal"></i>
-            <span>Retention</span></a>
     </li>
 
-    <hr class="sidebar-divider"> -->
-
-
-    <!-- Heading -->
-    <!-- <div class="sidebar-heading">
-        User
-    </div> -->
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#demographics"
-            aria-expanded="true" aria-controls="demographics">
-            <i class="fa fa-map" aria-hidden="true"></i>
-            <span>Demographics</span>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
+            aria-expanded="true" aria-controls="collapse5">
+            <i class="bi bi-file-earmark-fill"></i>
+            <span>Ads v2 Creatives</span>
         </a>
-        <div id="demographics" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/demographics-overview">Demographics Overview</a>
-                <a class="collapse-item" href="/demographics-details">Demographics Details</a>
+                <h6 class="collapse-header">v2 Creatives</h6>
+                <a class="collapse-item" href="/ads/v2/creatives-product">v2 Creatives Product</a>
+                <a class="collapse-item" href="/ads/v2/creatives-behavioral-audience">v2 Creatives Behavior</a>
+                <a class="collapse-item" href="/ads/v2/creatives-category">v2 Creatives Category</a>
+                <a class="collapse-item" href="/ads/v2/creatives-brand-affinity">v2 Creatives Brand</a>
             </div>
         </div>
-    </li> -->
+    </li>
 
-        <!-- Nav Item - Pages Collapse Menu -->
-        <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tech"
-            aria-expanded="true" aria-controls="tech">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Tech</span>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse7"
+            aria-expanded="true" aria-controls="collapse7">
+            <i class="bi bi-file-earmark-fill"></i>
+            <span>Ads v2 Adgroups</span>
         </a>
-        <div id="tech" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse7" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/tech-overview">Tech Overview</a>
-                <a class="collapse-item" href="/tech-details">Tech Details</a>
+                <h6 class="collapse-header">V2 Adgroups</h6>
+                <a class="collapse-item" href="/ads/v2/adgroups-product">v2 Adgroups Product</a>
+                <a class="collapse-item" href="/ads/v2/adgroups-behavioral-audience">v2 Adgroups Behavior</a>
+                <a class="collapse-item" href="/ads/v2/adgroups-category">v2 Adgroups Category</a>
+                <a class="collapse-item" href="/ads/v2/adgroups-brand-affinity">v2 Adgroups Brand Affinity</a>
+                <a class="collapse-item" href="/ads/v2/adgroups-sv-locations">v2 Adgroup SV Locations</a>
+                <a class="collapse-item" href="/ads/v2/adgroups-publisher">v2 Adgroups Publisher</a>
             </div>
         </div>
-    </li> -->
-
-    
+    </li>
 
     <!-- Divider -->
-    <!-- <hr class="sidebar-divider d-none d-md-block"> -->
+    <hr class="sidebar-divider">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-    <!-- Sidebar Message -->
-    <!-- <div class="sidebar-card d-none d-lg-flex">
-        <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-        <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-    </div> -->
+
 
 </ul>

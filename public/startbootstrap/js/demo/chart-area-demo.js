@@ -2,6 +2,12 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
+$.ajaxSetup({
+  headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
 function number_format(number, decimals, dec_point, thousands_sep) {
   // *     example: number_format(1234.56, 2, ',', ' ');
   // *     return: '1 234,56'
@@ -27,16 +33,59 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
+$('body').on('click', '.draw-area-chart', function(e){
+
+  ajax_draw_chart($(this).data('selector'), $(this).data('fetch-type'));
+
+});
+
+ajax_draw_chart('myAreaChart', 'user');
+
 // Area Chart Example
-var ctx = document.getElementById("myAreaChart");
+function ajax_draw_chart(selector, fetch_type){
+
+  $.ajax({
+
+  type: 'POST',
+  data: {
+    fetch_type: fetch_type
+
+  },
+  url: '/fetch/userDate',
+  success: function (response){
+
+    area_draw_chart(response, selector);
+
+  }
+
+  });
+
+}
+
+function area_draw_chart(area_data, selector){
+
+  let month_list = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+  const month_label = $.map(area_data, function(obj){
+
+    return month_list[obj.month - 1];
+
+  });
+
+  const area_value = $.map(area_data, function(obj){
+
+    return obj.user_count;
+
+  });
+  var ctx = document.getElementById(selector);
 
 
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: month_label, 
     datasets: [{
-      label: "Earnings",
+      label: "Users",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
@@ -48,7 +97,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+      data: area_value,
     }],
   },
   options: {
@@ -80,7 +129,7 @@ var myLineChart = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return number_format(value);
           }
         },
         gridLines: {
@@ -112,9 +161,11 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
         }
       }
     }
   }
 });
+
+}
